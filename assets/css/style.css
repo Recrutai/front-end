@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'torus-bold';
+    src: url('../fonts/toruspro-bold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'torus-light';
+    src: url('../fonts/toruspro-light.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'torus-regular';
+    src: url('../fonts/toruspro-regular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'torus-semibold';
+    src: url('../fonts/toruspro-semibold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'torus-thin';
+    src: url('../fonts/toruspro-thin.otf') format('truetype');
+}
+
+body {
+    font-family: 'torus-regular';
+}
+
+p {
+    font-family: 'torus-thin';
+}
