@@ -23,10 +23,47 @@
     src: url('../fonts/toruspro-thin.otf') format('truetype');
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a, ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #145DA0;
+    padding: 1em 2em;
+}
+
+nav p {
+    font-family: 'torus-regular';
+    color: #fff;
+    width: 35%;
+}
+
 body {
     font-family: 'torus-regular';
 }
 
-p {
-    font-family: 'torus-thin';
+
+input {
+    padding: 1em;
+    border: 2px solid #145DA0;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-family: 'torus-regular';
+    background-color: #fdfdfd;
+    transition: 1s;
+}
+
+input:focus {
+  outline: none; 
+  border: 2px solid #fff; 
+  box-shadow: 0 0 5px #000; 
 }
