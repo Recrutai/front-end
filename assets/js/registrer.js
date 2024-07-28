@@ -11,7 +11,7 @@ form.addEventListener("submit", function(event) {
         firstName : getDataForm("firstName"),
         lastName : getDataForm("lastName"),
         email : getDataForm("email"),
-        hashedPassword: getDataForm("hashedPassword"),
+        password: getDataForm("password"),
     }
     console.log(dados)
     const url = "http://localhost:8080/api/register"
