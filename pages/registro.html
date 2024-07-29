@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="../assets/css/registro.css" />
+    <script src="../assets/js/registrer.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../assets/img/logo.png" width="200" />
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="firstname">Primeiro Nome</label>
+          <input type="text" id="firstName" name="firstName" required />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Último Nome</label>
+          <input type="text" id="lastName" name="lastName" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+    </div>
+
+    <footer style="padding: 1em">
+      <p style="color: #fff; text-align: center">
+        © 2024 RECRUTAÍ. Todos os direitos reservados.
+      </p>
+    </footer>
+  </body>
+</html>

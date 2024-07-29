@@ -1,69 +1,71 @@
 @font-face {
-    font-family: 'torus-bold';
-    src: url('../fonts/toruspro-bold.otf') format('truetype');
+  font-family: "torus-bold";
+  src: url("../fonts/toruspro-bold.otf") format("truetype");
 }
 
 @font-face {
-    font-family: 'torus-light';
-    src: url('../fonts/toruspro-light.otf') format('truetype');
+  font-family: "torus-light";
+  src: url("../fonts/toruspro-light.otf") format("truetype");
 }
 
 @font-face {
-    font-family: 'torus-regular';
-    src: url('../fonts/toruspro-regular.otf') format('truetype');
+  font-family: "torus-regular";
+  src: url("../fonts/toruspro-regular.otf") format("truetype");
 }
 
 @font-face {
-    font-family: 'torus-semibold';
-    src: url('../fonts/toruspro-semibold.otf') format('truetype');
+  font-family: "torus-semibold";
+  src: url("../fonts/toruspro-semibold.otf") format("truetype");
 }
 
 @font-face {
-    font-family: 'torus-thin';
-    src: url('../fonts/toruspro-thin.otf') format('truetype');
+  font-family: "torus-thin";
+  src: url("../fonts/toruspro-thin.otf") format("truetype");
 }
 
 * {
-    margin: 0;
-    padding: 0;
-}
-
-a, ul, li {
-    text-decoration: none;
-    list-style: none;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #145DA0;
-    padding: 1em 2em;
-}
-
-nav p {
-    font-family: 'torus-regular';
-    color: #fff;
-    width: 35%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'torus-regular';
+  font-family: "torus-regular";
 }
 
-
-input {
-    padding: 1em;
-    border: 2px solid #145DA0;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-family: 'torus-regular';
-    background-color: #fdfdfd;
-    transition: 1s;
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
 }
 
-input:focus {
-  outline: none; 
-  border: 2px solid #fff; 
-  box-shadow: 0 0 5px #000; 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #145da0;
+  padding: 0em 2em;
+}
+
+nav p {
+  font-family: "torus-regular";
+  color: #fff;
+  width: 50%;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #145da0;
+  color: white;
+  text-align: center;
+  user-select: none;
+}
+
+footer p {
+  padding: 2.5em;
 }
