@@ -39,7 +39,7 @@ form.addEventListener("submit", function (event) {
     password: getDataForm("password"),
   };
 
-  console.log(dataForm);
+  //console.log(dataForm);
   const url = "http://localhost:8080/api/auth/login";
   login(dataForm, url);
 });
