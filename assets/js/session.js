@@ -7,3 +7,14 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("main-content").style.display = "block";
     }
 });
+
+const form = document.querySelector("form")
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const token = localStorage.getItem("userId");
+    console.log(token)
+    if (token) {
+        localStorage.removeItem("userId");
+        window.location.href = "login.html";
+    }
+})

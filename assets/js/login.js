@@ -24,7 +24,9 @@ async function login(loginData, url) {
     erro.innerHTML = "Login ou Senha Inválidos";
   }
   else {
-    alert("Falha ao logar!");
+    document.getElementById("div-erro").style.visibility = "visible"
+    let erro = document.getElementById("erro");
+    erro.innerHTML = "Erro Interno, Contacte o Administrador do Sistema!";
   }
 }
 
