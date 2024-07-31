@@ -16,8 +16,14 @@ async function login(loginData, url) {
     const data = await response.json();
     localStorage.setItem("userId", data.id);
     console.log(data);
-    window.location.href = "main.html";
-  } else {
+    window.location.href = "home.html";
+  } 
+  else if(response.status === 401) {
+    document.getElementById("div-erro").style.visibility = "visible"
+    let erro = document.getElementById("erro");
+    erro.innerHTML = "Login ou Senha Inválidos";
+  }
+  else {
     alert("Falha ao logar!");
   }
 }

@@ -1,3 +1,20 @@
+:root {
+  --color-dark-text: #444;
+  --color-info-light: #cce5ff;
+  --color-debug-light: #cce5ff;
+  --color-success-light: #d4edda;
+  --color-alert-light: #fff3cd;
+  --color-warning-light: #fff3cd;
+  --color-error-light: #f8d7da;
+
+  --color-info-dark: #4d86c4;
+  --color-debug-dark: #4d86c4;
+  --color-success-dark: #4a9c5d;
+  --color-alert-dark: #927f40;
+  --color-warning-dark: #927f40;
+  --color-error-dark: #da525d;
+}
+
 body {
   background-color: #145da0;
 }
@@ -57,4 +74,35 @@ body {
 .btn:hover {
   background-color: #fff;
   color: #007bff;
+}
+
+/* Estilos das validações*/
+
+.message-error {
+  visibility: hidden;
+  background-color: #da525d;
+  color: whitesmoke;
+  width: 50vh;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+.link-registro {
+  padding: 30px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 900;
 }

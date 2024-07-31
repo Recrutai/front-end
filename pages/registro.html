@@ -6,19 +6,27 @@
     <title>Cadastro</title>
 
     <link rel="stylesheet" href="../assets/css/registro.css" />
+    <link rel="stylesheet" href="../assets/css/login.css">
     <script src="../assets/js/registrer.js" defer></script>
   </head>
   <body>
     <div class="container">
       <img src="../assets/img/logo.png" width="200" />
+      <div class="message-error" id="div-erro">
+        <div id="list-erros">
+
+        </div>
+      </div>
+      <h2>Crie sua Conta</h2>
+      <form id="loginForm">
       <form id="registerForm">
         <div class="form-group">
           <label for="firstname">Primeiro Nome</label>
-          <input type="text" id="firstName" name="firstName" required />
+          <input type="text" id="firstName" name="firstName" required minlength="4"/>
         </div>
         <div class="form-group">
           <label for="lastname">Último Nome</label>
-          <input type="text" id="lastName" name="lastName" required />
+          <input type="text" id="lastName" name="lastName" required minlength="4"/>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
@@ -26,9 +34,9 @@
         </div>
         <div class="form-group">
           <label for="password">Senha</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" required minlength="12"/>
         </div>
-        <button type="submit" class="btn">Cadastrar</button>
+        <button type="submit" class="btn" onclick="formRegister()">Cadastrar</button>
       </form>
     </div>
 
