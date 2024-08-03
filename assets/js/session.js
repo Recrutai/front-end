@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 const form = document.querySelector("form")
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const token = localStorage.getItem("userId");
-    console.log(token)
-    if (token) {
-        localStorage.removeItem("userId");
-        window.location.href = "login.html";
-    }
-})
+if(form) {
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const token = localStorage.getItem("userId");
+        console.log(token)
+        if (token) {
+            localStorage.removeItem("userId");
+            window.location.href = "login.html";
+        }
+    })
+}

@@ -106,3 +106,7 @@ li {
   font-size: 16px;
   font-weight: 900;
 }
+
+#main-content {
+  display: none;
+}

@@ -62,3 +62,7 @@ body {
   background-color: #fff;
   color: #007bff;
 }
+
+#main-content {
+  display: none;
+}
