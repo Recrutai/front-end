@@ -1,7 +1,3 @@
-body {
-  background-color: #145da0;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -63,6 +59,65 @@ body {
   color: #007bff;
 }
 
+/* Estilos das validações*/
+.message-error {
+  font-family: "Lucida Sans Regular", sans-serif;
+  visibility: hidden;
+  background-color: #da525d;
+  color: whitesmoke;
+  max-width: 35vw;
+  min-height: 30vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.link-registro {
+  padding: 30px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+li {
+  display: flex;
+  font-size: 12px;
+  font-weight: 900;
+}
+
 #main-content {
   display: none;
+}
+
+/* Nova exibição de erros */
+#formErrors {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #fff;
+  width: 30em;
+
+  background-color: var(--color-error-dark);
+  margin: 1em;
+  border-radius: 5px;
+  text-align: center;
+  list-style: disc !important;
+}
+
+#formErrors ul {
+  font-size: 1.3em;
+  display: flex;
+  width: 100%;
+  padding: 0.5em 0em;
+}
+
+#formErrors li {
+  font-size: 0.9em;
 }

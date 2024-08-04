@@ -3,56 +3,50 @@ function getDataForm(id) {
   return document.getElementById(id).value;
 }
 
-function flashMessage(erros) {
-  document.getElementById("div-erro").style.visibility = "visible";
-  document.getElementById("div-erro").style.height = "20vh";
-  const listErros = document.getElementById("list-erros");
-  const ul = document.createElement("ul");
-
-  erros.forEach(erro => {
-    const li = document.createElement("li");
-    li.textContent = erro;
-    ul.appendChild(li);
-  })
-  listErros.appendChild(ul);
-}
-
 function formRegister() {
-  let formErrors = [];
+  const formErrors = document.getElementById("formErrors");
+  formErrors.innerHTML = "";
+
   let isValid = true;
   const firstName = getDataForm("firstName");
   const lastName = getDataForm("lastName");
   const email = getDataForm("email");
   const password = getDataForm("password");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()[\]{}\\-_+=.,:;<>/|?]).{12,}$/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()[\]{}\\-_+=.,:;<>/|?]).{12,}$/;
+
+  let errorList = "<ul>";
 
   if (firstName.length < 4 || firstName.length > 40) {
-    formErrors.push("Nome Inválido! Mín: 4 | Máx: 40");
+    errorList += "<li>Nome Inválido! Mín: 4 | Máx: 40</li>";
     isValid = false;
   }
 
   if (lastName.length < 4 || lastName.length > 40) {
-    formErrors.push("Sobrenome Inválido! Mín: 4 | Máx: 40")
+    errorList += "<li>Sobrenome Inválido! Mín: 4 | Máx: 40</li>";
     isValid = false;
   }
 
   if (!emailRegex.test(email)) {
-    formErrors.push("Endereço de E-mail Inválido!")
+    errorList += "<li>Endereço de E-mail Inválido.</li>";
     isValid = false;
   }
 
-  if(password.length < 12) {
-    formErrors.push("Padrão de Senha Inválido! No Mínimo 12 Caracteres!")
+  if (password.length < 12) {
+    errorList += "<li>Padrão de Senha Inválido! No Mínimo 12 Caracteres.</li>";
     isValid = false;
   }
 
   if (!passwordRegex.test(password)) {
-    formErrors.push("Padrão de Senha Inválido! 1 Caractere Especial, 1 Maiscúlo, 1 Mínisculo e 1 Número")
+    errorList +=
+      "<li>Padrão de Senha Inválido! 1 Caractere Especial, 1 Maiúsculo, 1 Minúsculo e 1 Número.</li>";
     isValid = false;
   }
 
-  flashMessage(formErrors)
+  errorList += "</ul>";
+
+  formErrors.innerHTML = errorList;
   return isValid;
 }
 
@@ -79,11 +73,10 @@ form.addEventListener("submit", function (event) {
     body: JSON.stringify(dataForm),
   };
 
-
   if (formRegister()) {
     fetch(url, options)
       .then((data) => {
-        setTimeout(1000)
+        setTimeout(1000);
         console.log(data);
         window.location.href = "login.html";
       })

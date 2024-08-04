@@ -28,8 +28,31 @@
   padding: 0;
 }
 
+:root {
+  --color-main: #145da0;
+  --color-main-dark: #0056b3;
+
+  --color-dark-text: #444;
+  --color-info-light: #cce5ff;
+  --color-debug-light: #cce5ff;
+  --color-success-light: #d4edda;
+  --color-alert-light: #fff3cd;
+  --color-warning-light: #fff3cd;
+  --color-error-light: #f8d7da;
+
+  --color-info-dark: #4d86c4;
+  --color-debug-dark: #4d86c4;
+  --color-success-dark: #4a9c5d;
+  --color-alert-dark: #927f40;
+  --color-warning-dark: #927f40;
+  --color-error-dark: #da525d;
+}
+
 body {
   font-family: "torus-regular";
+  max-width: 100vw;
+  max-height: 100vh;
+  background-color: var(--color-main);
 }
 
 a,
@@ -43,7 +66,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #145da0;
+  background-color: var(--color-main);
   padding: 0em 2em;
 }
 
@@ -60,7 +83,7 @@ main {
 
 footer {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #145da0;
+  background-color: var(--color-main);
   color: white;
   text-align: center;
   user-select: none;

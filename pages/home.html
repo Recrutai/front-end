@@ -1,19 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/home.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Recrutaí</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/home.css" />
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
     <script src="../assets/js/session.js" defer></script>
-</head>
-<body>
-    <div id="main-content">
-        Bem-Vindo ao Recrutaí
-        <form action="" method="post">
-            <button type="submit">Sair</button>
-        </form>
-        <a href="vagas.html">Criar Vaga</a>
-    </div>
-</body>
+    <script src="../assets/js/vacancy.js" defer></script>
+
+    <!-- lib de icones -->
+    <script
+      src="https://kit.fontawesome.com/4dd1a9f4a4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/img/logo.png" width="100" />
+
+      <form action="" method="post">
+        <button type="submit">Sair</button>
+      </form>
+    </header>
+
+    <main>
+      <div class="intro">
+        <div class="descIntro">
+          <h3>Encontre vagas de estágio e pesquisa cientifica</h3>
+          <p>Confira gratuitamente as oportunidades registradas no Recrutaí.</p>
+          <div class="search-container">
+            <form action="">
+              <input type="text" name="search" id="search" />
+              <button type="submit" class="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <img src="../assets/img/search.png" width="500" />
+      </div>
+
+      <div class="showVacancy">
+        <div class="headVacancy">
+          <div class="category">
+            <h5>Exibindo oportunidades para:</h5>
+            <select id="opportunityType">
+              <option value="estagio" selected>Estágio</option>
+              <option value="pesquisa">Pesquisa</option>
+            </select>
+          </div>
+
+          <button id="openModalBtn" class="btn">
+            <i class="fas fa-plus"></i> Criar Vaga
+          </button>
+        </div>
+
+        <div class="cards"></div>
+
+        <div class="createVacancy">
+          <div id="vacancyModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Criar Vaga</h5>
+                <span class="close">&times;</span>
+              </div>
+              <div class="modal-body">
+                <form id="vacancyForm">
+                  <div class="form-group">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="workModel">Modelo de Trabalho:</label>
+                    <input
+                      type="text"
+                      id="workModel"
+                      name="workModel"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="avgSalary">Salário Médio:</label>
+                    <input
+                      type="number"
+                      id="avgSalary"
+                      name="avgSalary"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="positions">Posições:</label>
+                    <input
+                      type="number"
+                      id="positions"
+                      name="positions"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn-createVacancy">
+                    <h6>Criar Vaga</h6>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2024 RECRUTAÍ. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- script pro modal de criar vagas -->
+    <script>
+      var modal = document.getElementById("vacancyModal");
+      var btn = document.getElementById("openModalBtn");
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>
