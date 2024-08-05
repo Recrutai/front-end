@@ -1,12 +1,12 @@
 //Confirmação de Usuário
 
-async function login(codeData, url) {
+async function login(url) {
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(codeData),
+    //body: JSON.stringify(codeData),
   });
 
   if (response.ok) {
@@ -27,11 +27,7 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   let verifCode = document.getElementById("codigo").value;
-  const dataForm = {
-    codigo: verifCode,
-  };
-  console.log(dataForm);
 
-  const url = "http://localhost:8080/api/auth/login";
-  login(dataForm, url);
+  const url = `http://localhost:8080/api/auth/verify-account?code=${verifCode}`;
+  login(url);
 });
