@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recrutaí</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/home.css" />
@@ -35,10 +35,10 @@
     <main>
       <div class="intro">
         <div class="descIntro">
-          <h3>Encontre vagas de estágio e pesquisa cientifica</h3>
+          <h3>Encontre vagas de estagio e pesquisa cientifica</h3>
           <p>Confira gratuitamente as oportunidades registradas no Recrutaí.</p>
           <div class="search-container">
-            <form action="">
+            <form action="" id="search-form">
               <input type="text" name="search" id="search" />
               <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>
@@ -54,8 +54,8 @@
           <div class="category">
             <h5>Exibindo oportunidades para:</h5>
             <select id="opportunityType">
-              <option value="estagio" selected>Estágio</option>
-              <option value="pesquisa">Pesquisa</option>
+              <option value="Estagio" selected>Estágio</option>
+              <option value="Pesquisa">Pesquisa</option>
             </select>
           </div>
 
@@ -73,28 +73,36 @@
                 <h5 class="modal-title">Criar Vaga</h5>
                 <span class="close">&times;</span>
               </div>
+              <div id="div-erro">
+                <div id="erro"></div>
+              </div>
               <div class="modal-body">
                 <form id="vacancyForm">
                   <div class="form-group">
                     <label for="title">Título:</label>
-                    <input type="text" id="title" name="title" required />
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      max-length="120"
+                      required
+                    />
                   </div>
                   <div class="form-group">
                     <label for="description">Descrição:</label>
                     <textarea
                       id="description"
                       name="description"
+                      max-length="2500"
                       required
                     ></textarea>
                   </div>
                   <div class="form-group">
                     <label for="workModel">Modelo de Trabalho:</label>
-                    <input
-                      type="text"
-                      id="workModel"
-                      name="workModel"
-                      required
-                    />
+                    <select id="workModel" name="workModel" required>
+                      <option value="Estagio" selected>Estágio</option>
+                      <option value="Pesquisa">Pesquisa</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="avgSalary">Salário Médio:</label>

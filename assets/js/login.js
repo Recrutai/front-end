@@ -17,14 +17,12 @@ async function login(loginData, url) {
     localStorage.setItem("userId", data.id);
     console.log(data);
     window.location.href = "home.html";
-  } 
-  else if(response.status === 401) {
-    document.getElementById("div-erro").style.visibility = "visible"
+  } else if (response.status === 401) {
+    document.getElementById("div-erro").style.visibility = "visible";
     let erro = document.getElementById("erro");
     erro.innerHTML = "Login ou Senha Inválidos";
-  }
-  else {
-    document.getElementById("div-erro").style.visibility = "visible"
+  } else {
+    document.getElementById("div-erro").style.visibility = "visible";
     let erro = document.getElementById("erro");
     erro.innerHTML = "Erro Interno, Contacte o Administrador do Sistema!";
   }

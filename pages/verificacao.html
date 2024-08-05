@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Confirmação</title>
-  <link rel="stylesheet" href="../assets/css/login.css" />
-  <script src="../assets/js/verificacao.js" defer></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmação</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <script src="../assets/js/verificacao.js" defer></script>
+  </head>
 
-<body>
-  <div class="container">
-    <img src="../assets/img/logo.png" width="200"/>
-    <div class="message-error" id="div-erro">
-      <h3 id="erro"></h3>
-    </div>
-    <h2>Confirmação da Conta</h2>
-    <form id="ConfimacaoForm">
-      <div class="form-group">
-        <label for="codigo">Digite o Código de Verificação</label>
-        <input type="text" id="codigo" name="codigo" required minlength="6" maxlength="6"/>
+  <body>
+    <div class="container">
+      <img src="../assets/img/logo.png" width="200" />
+      <div class="message-error" id="div-erro">
+        <h3 id="erro"></h3>
       </div>
-      <button type="submit" class="btn">Verificar Conta</button>
-    </form>
-    <a class="link-registro" href="/pages/registro.html">Não recebeu o código? Clique aqui para reenviar</a>
-    <footer style="padding: 1em">
-      <p style="color: #fff; text-align: center">
-        © 2024 RECRUTAÍ. Todos os direitos reservados.
-      </p>
-    </footer>
-  </div>
-</body>
+      <h2>Confirmação da Conta</h2>
+      <form id="ConfimacaoForm">
+        <div class="form-group">
+          <label for="codigo">Digite o Código de Verificação</label>
+          <input
+            type="text"
+            id="codigo"
+            name="codigo"
+            required
+            minlength="6"
+            maxlength="6"
+          />
+        </div>
+        <button type="submit" class="btn">Verificar Conta</button>
+      </form>
+      <a class="link-registro" href="/pages/registro.html"
+        >Não recebeu o código? Clique aqui para reenviar</a
+      >
+      <footer style="padding: 1em">
+        <p style="color: #fff; text-align: center">
+          © 2024 RECRUTAÍ. Todos os direitos reservados.
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>

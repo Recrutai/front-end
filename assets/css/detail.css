@@ -1,0 +1,153 @@
+header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 1em 10em;
+}
+
+header button {
+  padding: 1em 2em;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  background: none;
+}
+
+header button:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  background: #297ac5;
+}
+
+main {
+  min-height: 60vh;
+  color: #ccc;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0.5em;
+  color: #fff;
+}
+
+#vacancyDetails {
+  background: #ececec;
+  width: 80vw;
+  border-radius: 5px 5px 0 0;
+  padding: 2em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: var(--color-dark-text);
+}
+
+strong {
+  font-size: 1.1em;
+  color: var(--color-main);
+}
+
+#vacancyDetails p {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  color: var(--color-dark-text);
+}
+
+#vacancyDetails h2 {
+  font-size: 3em;
+}
+
+#vacancyDetails h2 {
+  font-size: 3em;
+}
+
+.btn-apply {
+  background: none;
+  border: 1px solid #ccc;
+  color: #ccc;
+  width: 84.5vw;
+  padding: 1em 2em;
+  font-size: 1.5em;
+}
+
+.btn-apply:hover {
+  background: var(--color-main-dark);
+  cursor: pointer;
+}
+
+/* modal */
+.modal {
+  display: none; /* Esconder o modal por padrão */
+  position: fixed;
+  z-index: 1; /* Ficar na frente de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: auto; /* Habilitar rolagem se necessário */
+  background-color: rgb(0, 0, 0); /* Cor de fundo */
+  background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com transparência */
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Centralizar o modal */
+  padding: 2em;
+  border: 1px solid #888;
+  width: 70%; /* Largura do modal */
+}
+
+.modal-content h2 {
+  font-size: 3em;
+}
+
+.modal-content input {
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid #297ac5;
+}
+
+#submitSalaryBtn {
+  background: none;
+  padding: 1em;
+  border-radius: 5px;
+  color: var(--color-main);
+  cursor: pointer;
+  border: 1px solid var(--color-main);
+  transition: 1s;
+}
+
+#submitSalaryBtn:hover {
+  background: var(--color-main);
+  color: #fff;
+  transition: 1s;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes da Vaga</title>
+    <link rel="stylesheet" href="../assets/css/detail.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <script src="../assets/js/session.js" defer></script>
+    <script src="../assets/js/vacancy.js" defer></script>
+
+    <!-- lib de icones -->
+    <script
+      src="https://kit.fontawesome.com/4dd1a9f4a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        getVacancyDetails();
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <img src="../assets/img/logo.png" width="100" />
+
+      <form action="" method="post">
+        <button type="submit">Sair</button>
+      </form>
+    </header>
+
+    <main>
+      <h1>Detalhes da Vaga</h1>
+      <div id="vacancyDetails"></div>
+      <button id="applyBtn" class="btn-apply">Candidatar-se</button>
+
+      <!-- Modal -->
+      <div id="salaryModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="form">
+            <h2>Informe sua expectativa salarial</h2>
+            <input
+              type="number"
+              id="expectedSalary"
+              placeholder="Expectativa Salarial"
+            />
+            <button id="submitSalaryBtn">Enviar Candidatura</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2024 RECRUTAÍ. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../assets/js/candidacy.js"></script>
+  </body>
+</html>

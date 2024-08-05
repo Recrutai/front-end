@@ -202,10 +202,6 @@ main {
   font-size: 1.2em;
 }
 
-.form-group input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 .form-group input[type="number"]::-webkit-outer-spin-button,
 .form-group input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -222,12 +218,33 @@ main {
   font-size: 1.3em;
 }
 
+#div-erro {
+  background: var(--color-error-dark);
+  text-align: center;
+  width: 15em;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: #fff;
+}
+
 /* Exibição das vagas */
 .cards {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-evenly;
   align-items: center;
-  min-height: 40vh;
+  gap: 2em;
+  padding: 1em;
+}
+
+.card {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: var(--color-main-dark);
+  display: flex;
+  align-items: center;
 }
 
 .no-data {
@@ -237,4 +254,33 @@ main {
   color: #721c24;
   border-radius: 5px;
   border: 1px solid #f5c6cb;
+}
+
+.card-content {
+  background: #f3f3f3;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-details {
+  margin: 0 auto;
+  padding: 30px 20px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn-details:hover {
+  opacity: 0.7;
+  transition: 1.5s;
+}
+
+.btn-details i {
+  font-size: 2em;
 }
