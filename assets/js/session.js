@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("userId");
   const isActive = localStorage.getItem("isActive");
-  if (!token && !isActive) {
+  if (!token || !isActive) {
     window.location.href = "login.html";
   } else {
     document.getElementById("main-content").style.display = "block";

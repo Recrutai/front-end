@@ -31,3 +31,13 @@ form.addEventListener("submit", function (event) {
   const url = `http://localhost:8080/api/auth/verify-account?code=${verifCode}`;
   login(url);
 });
+
+// const verifyLink = document.querySelector(".link-registro");
+// verifyLink.addEventListener("click", function (event) {
+//   event.preventDefault()
+
+//   let verifCode = document.getElementById("codigo").value;
+
+//   const url = `http://localhost:8080/api/auth/verify-account`;
+//   login(url);
+// })
