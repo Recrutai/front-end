@@ -284,3 +284,7 @@ main {
 .btn-details i {
   font-size: 2em;
 }
+
+.logout:hover {
+  background-color: #dc3545;
+}

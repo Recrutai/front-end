@@ -92,3 +92,7 @@ footer {
 footer p {
   padding: 2.5em;
 }
+
+#main-content {
+  display: none;
+}
