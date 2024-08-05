@@ -78,7 +78,7 @@ form.addEventListener("submit", function (event) {
       .then((data) => {
         setTimeout(1000);
         console.log(data);
-        window.location.href = "login.html";
+        window.location.href = "verificacao.html";
       })
       .catch((error) => {
         console.error("Erro ao enviar dados:", error);

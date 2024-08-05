@@ -11,7 +11,7 @@ async function login(url) {
 
   if (response.ok) {
     window.location.href = "login.html";
-  } else if (response.status === 400) {
+  } else if (response.status === 401) {
     document.getElementById("div-erro").style.visibility = "visible";
     let erro = document.getElementById("erro");
     erro.innerHTML = "Código de Verificação Inválido!";

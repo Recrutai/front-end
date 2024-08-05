@@ -12,16 +12,24 @@ async function login(loginData, url) {
     body: JSON.stringify(loginData),
   });
 
+  const data = await response.json();
   if (response.ok) {
-    const data = await response.json();
+
     localStorage.setItem("userId", data.id);
+    localStorage.setItem("isActive", data.isActive)
     console.log(data);
+    console.log(response)
     window.location.href = "home.html";
-  } else if (response.status === 401) {
+  } else if (response.status === 401 && !data.isActive) {
+    window.location.href = "verificacao.html"
+  }
+
+  else if (response.status === 401) {
     document.getElementById("div-erro").style.visibility = "visible";
     let erro = document.getElementById("erro");
     erro.innerHTML = "Login ou Senha Inválidos";
-  } else {
+  }
+  else {
     document.getElementById("div-erro").style.visibility = "visible";
     let erro = document.getElementById("erro");
     erro.innerHTML = "Erro Interno, Contacte o Administrador do Sistema!";
