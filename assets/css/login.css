@@ -88,3 +88,13 @@ li {
 #main-content {
   display: none;
 }
+
+.resendCode {
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}

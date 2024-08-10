@@ -117,7 +117,7 @@ const formVacancy = document.getElementById("vacancyForm");
 formVacancy.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const userId = localStorage.getItem("userId");
+  const userId = sessionStorage.getItem("userId");
 
   const dataForm = {
     title: getDataForm("title"),
@@ -232,7 +232,7 @@ function getVacancyDetails() {
 }
 
 function applyForVacancy(vacancyId) {
-  const userId = localStorage.getItem("userId");
+  const userId = sessionStorage.getItem("userId");
   if (!userId) {
     alert("Você precisa estar logado para se candidatar.");
     window.location.href = "login.html";

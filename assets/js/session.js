@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const token = localStorage.getItem("userId");
-  const isActive = localStorage.getItem("isActive");
+  const token = sessionStorage.getItem("userId");
+  const isActive = sessionStorage.getItem("isActive");
   if (!token || !isActive) {
     window.location.href = "login.html";
   } else {
@@ -12,10 +12,10 @@ const form = document.querySelector("form");
 if (form) {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    const token = localStorage.getItem("userId");
+    const token = sessionStorage.getItem("userId");
     console.log(token);
     if (token) {
-      localStorage.removeItem("userId");
+      sessionStorage.removeItem("userId");
       window.location.href = "login.html";
     }
   });

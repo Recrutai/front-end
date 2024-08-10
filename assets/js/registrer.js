@@ -78,6 +78,7 @@ form.addEventListener("submit", function (event) {
       .then((data) => {
         setTimeout(1000);
         console.log(data);
+        sessionStorage.setItem("userEmail", dataForm.email);
         window.location.href = "verificacao.html";
       })
       .catch((error) => {
