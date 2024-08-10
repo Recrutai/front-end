@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const token = sessionStorage.getItem("userId");
-  const isActive = sessionStorage.getItem("isActive");
-  if (!token || !isActive) {
+  if (!token) {
     window.location.href = "login.html";
   } else {
     document.getElementById("main-content").style.display = "block";

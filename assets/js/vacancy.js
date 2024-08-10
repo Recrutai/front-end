@@ -36,7 +36,7 @@ function getAllVacancys() {
       </div>
     `;
 
-      console.log(error);
+     console.log(error);
     });
 }
 
