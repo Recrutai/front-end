@@ -15,7 +15,7 @@
     />
 
     <script src="../assets/js/session.js" defer></script>
-    <script src="../assets/js/vacancy.js" defer></script>
+    <script src="../assets/js/candidacy.js" defer></script>
 
     <!-- lib de icones -->
     <script
@@ -48,15 +48,17 @@
       <div id="salaryModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <div id="form">
-            <h2>Informe sua expectativa salarial</h2>
-            <input
-              type="number"
-              id="expectedSalary"
-              placeholder="Expectativa Salarial"
-            />
-            <button id="submitSalaryBtn">Enviar Candidatura</button>
-          </div>
+          <form id="formApplication">
+            <div id="form">
+              <h2>Informe sua expectativa salarial</h2>
+              <input
+                type="number"
+                id="expectedSalary"
+                placeholder="Expectativa Salarial"
+              />
+              <button id="submitSalaryBtn" type="submit">Enviar Candidatura</button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
@@ -64,7 +66,5 @@
     <footer>
       <p>© 2024 RECRUTAÍ. Todos os direitos reservados.</p>
     </footer>
-
-    <script src="../assets/js/candidacy.js"></script>
   </body>
 </html>

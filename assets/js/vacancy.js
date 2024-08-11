@@ -1,3 +1,7 @@
+function getDataForm(id) {
+  return document.getElementById(id).value;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // carrega todas as vagas aqui
   getAllVacancys();
@@ -35,8 +39,7 @@ function getAllVacancys() {
         <p>Nenhuma vaga disponível no momento.</p>
       </div>
     `;
-
-     console.log(error);
+      console.log(error);
     });
 }
 
@@ -138,8 +141,8 @@ function getVacancyByTitle() {
   let title = document.getElementById("search").value.trim();
   const url = title
     ? `http://localhost:8080/api/vacancies/search?title=${encodeURIComponent(
-        title
-      )}`
+      title
+    )}`
     : "http://localhost:8080/api/vacancies";
 
   fetch(url)
@@ -197,70 +200,46 @@ function getVacancyByTitle() {
 }
 
 // recupera vaga em detalhes e se candidata
-function getVacancyDetails() {
-  const params = new URLSearchParams(window.location.search);
-  const vacancyId = params.get("id");
+// function getVacancyDetails() {
+//   const params = new URLSearchParams(window.location.search);
+//   const vacancyId = params.get("id");
 
-  if (!vacancyId) {
-    document.getElementById("vacancyDetails").innerHTML =
-      "ID da vaga não encontrado.";
-    return;
-  }
+//   if (!vacancyId) {
+//     document.getElementById("vacancyDetails").innerHTML =
+//       "ID da vaga não encontrado.";
+//     return;
+//   }
 
-  const url = `http://localhost:8080/api/vacancies/${vacancyId}`;
-  fetch(url)
-    .then((response) => response.json())
-    .then((vacancy) => {
-      const detailsContainer = document.getElementById("vacancyDetails");
-      detailsContainer.innerHTML = `
-            <h2>${vacancy.title}</h2>
-            <p><strong>Descrição:</strong> ${vacancy.description}</p>
-            <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
-            <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
-            <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
-            <p><strong>Vagas:</strong> ${vacancy.positions}</p>
-          `;
+//   const url = `http://localhost:8080/api/vacancies/${vacancyId}`;
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((vacancy) => {
+//       const detailsContainer = document.getElementById("vacancyDetails");
+//       detailsContainer.innerHTML = `
+//             <h2>${vacancy.title}</h2>
+//             <p><strong>Descrição:</strong> ${vacancy.description}</p>
+//             <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+//             <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
+//             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
+//             <p><strong>Vagas:</strong> ${vacancy.positions}</p>
+//           `;
 
-      // const applyBtn = document.getElementById("applyBtn");
-      // applyBtn.onclick = () => applyForVacancy(vacancyId);
-    })
-    .catch((error) => {
-      document.getElementById("vacancyDetails").innerHTML =
-        "Não foi possível carregar os detalhes da vaga.";
-      console.error("Erro ao buscar detalhes da vaga:", error);
-    });
-}
+//       // const applyBtn = document.getElementById("applyBtn");
+//       // applyBtn.onclick = () => applyForVacancy(vacancyId);
+//     })
+//     .catch((error) => {
+//       document.getElementById("vacancyDetails").innerHTML =
+//         "Não foi possível carregar os detalhes da vaga."
+//       console.error("Erro ao buscar detalhes da vaga:", error);
+//     });
+// }
 
-function applyForVacancy(vacancyId) {
-  const userId = sessionStorage.getItem("userId");
-  if (!userId) {
-    alert("Você precisa estar logado para se candidatar.");
-    window.location.href = "login.html";
-    return;
-  }
+function getUrlParameter(parameter) {
+  
+  const url = window.location.href;
+  const urlObject = new URL(url);
+  const params = new URLSearchParams(urlObject.search);
 
-  const url = "http://localhost:8080/api/applications";
-  const data = {
-    candidateId: parseInt(userId),
-    vacancyId,
-    expectedSalary,
-  };
+  return params.get(parameter);
 
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      alert("Candidatura enviada com sucesso!");
-      window.location.href = "home.html";
-    })
-    .catch((error) => {
-      alert("Não foi possível enviar a candidatura.");
-      console.error("Erro ao enviar candidatura:", error);
-    });
 }
