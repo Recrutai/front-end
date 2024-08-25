@@ -1,7 +1,5 @@
 //Cadastro de Usuário
-function getDataForm(id) {
-  return document.getElementById(id).value;
-}
+import { getDataForm } from "../js/uteis.js";
 
 function formRegister() {
   const formErrors = document.getElementById("formErrors");
@@ -58,32 +56,42 @@ form.addEventListener("submit", function (event) {
     firstName: getDataForm("firstName"),
     lastName: getDataForm("lastName"),
     email: getDataForm("email"),
+    headline: "Tech",
     password: getDataForm("password"),
+    location: {
+      streetAddress: "string",
+      city: "string",
+      state: "string",
+      country: "string",
+      postalCode: "string",
+      latitude: 0,
+      longitude: 0
+    }
   };
 
-  console.log(dataForm);
-
   const url = "http://localhost:8080/api/auth/register";
+  registerUser(dataForm, url)
+  formRegister()
+
+});
+
+async function registerUser(data, url) {
 
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(dataForm),
-  };
-
-  if (formRegister()) {
-    fetch(url, options)
-      .then((data) => {
-        setTimeout(1000);
-        console.log(data);
-        sessionStorage.setItem("userEmail", dataForm.email);
-        window.location.href = "verificacao.html";
-      })
-      .catch((error) => {
-        console.error("Erro ao enviar dados:", error);
-        alert("Erro ao enviar dados. Tente novamente!");
-      });
+    body: JSON.stringify(data),
   }
-});
+  const response = await fetch(url, options);
+
+  if (response.ok && formRegister()) {
+    sessionStorage.setItem("userEmail", data.email);
+    window.location.href = "verificacao.html";
+  }
+  else {
+    console.log(response);
+    alert("Ocorreu um erro!");
+  }
+}

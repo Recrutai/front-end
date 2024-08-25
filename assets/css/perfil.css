@@ -41,3 +41,22 @@ header button:hover {
     cursor: pointer;
     background: #dc3545;
 }
+
+.label-card {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.add-institution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #145da0	;
+}

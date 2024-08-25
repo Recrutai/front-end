@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon"/>
+    <script type="module" src="../assets/js/institution.js"></script>
 </head>
 
 <body style="background-color: #145da0;">
@@ -62,6 +63,34 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="mt-3">
+                        <div class="card h-100">
+                            <div class="card-body" id="cardInstitution">
+                                <div class="label-card">
+                                    <div>
+                                        <h6 class="d-flex align-items-center mb-3"><i
+                                            class="material-icons text-info mr-2">
+                                                </i>Minhas Instituições
+                                        </h6>
+                                    </div>
+                                    <div>
+                                        <div class="add-institution" data-bs-toggle="modal" data-bs-target="#institutionModal">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <i class="fa-solid fa-building"> Accenture</i>
+                                </div>
+                                <hr>
+                                <div>
+                                    <i class="fa-solid fa-building"> Claro</i>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
@@ -102,12 +131,6 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cursosModal">Novo Curso</button>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#jobsModal">Nova Experiência</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -217,14 +240,80 @@
                             </div>
                     </div>
                     <!-- Modal Jobs-->
-  
+
+                    <!-- Modal Instituição-->
+                    <div class="modal fade" id="institutionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        Adicionar Instituição
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form id="formInstitution">
+                                    <div class="modal-body">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="nameInstitution">
+                                            <label for="floatingInputGrid">Nome</label>
+                                        </div>
+                                        <label for="floatingInputGrid" class="mb-3">Tipo</label>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" id="type">
+                                                <option value="PUBLIC">Pública</option>
+                                                <option value="PRIVATE">Privada</option>
+                                                <option value="ASSOCIATION">Associação</option>
+                                                <option value="SELF_EMPLOYED">Autonômo</option>
+                                              </select>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="headline">
+                                            <label for="floatingInputGrid">Área de Atuação</label>
+                                        </div>
+                                        <label for="floatingInputGrid" class="mb-3">Ramo</label>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" id="industry">
+                                            </select>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="companySizeId">
+                                            <label for="floatingInputGrid">Número de Funcionários</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="website">
+                                            <label for="floatingInputGrid">Website</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="about">
+                                            <label for="floatingInputGrid">Sobre</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cadastrar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- Modal Instituição-->
 
                     <div class="row gutters-sm">
                         <div class="col-sm-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body" id="cardJobs">
-                                    <h6 class="d-flex align-items-center mb-3"><i
-                                            class="material-icons text-info mr-2"></i>Experiência</h6>
+                                    <div class="label-card">
+                                        <div>
+                                            <h6 class="d-flex align-items-center mb-3">
+                                                <i class="material-icons text-info mr-2"></i>
+                                                Experiência
+                                            </h6>
+                                        </div>
+                                        <div>
+                                            <div class="add-institution" data-bs-toggle="modal" 
+                                            data-bs-target="#jobsModal">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div>
                                         <i class="fa-solid fa-building"> Accenture</i>
                                         <p>Desenvolvedor</p>
@@ -245,8 +334,20 @@
                         <div class="col-sm-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body" id="cardCourses">
-                                    <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2"></i>Licenças e certificados</h6>
+                                    <div class="label-card">
+                                        <div>
+                                            <h6 class="d-flex align-items-center mb-3">
+                                                <i class="material-icons text-info mr-2"></i>
+                                                Licenças e certificados
+                                            </h6>
+                                        </div>
+                                        <div>
+                                            <div class="add-institution" data-bs-toggle="modal" 
+                                            data-bs-target="#cursosModal">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        </div>
                                         <div>
                                             <i class="fa-solid fa-graduation-cap">Alura</i>
                                             <p>Python</p>
@@ -269,7 +370,7 @@
             </div>
         </div>
     </div>
-    <script src="../assets/js/proflie.js"></script>
+    <!-- <script src="../assets/js/proflie.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

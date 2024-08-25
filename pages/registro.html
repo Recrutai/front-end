@@ -7,14 +7,15 @@
 
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/registro.css" />
-    <script src="../assets/js/registrer.js" defer></script>
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon"/>
+    <script type="module" src="../assets/js/registrer.js" defer></script>
   </head>
   <body>
     <div class="container">
       <img src="../assets/img/logo.png" width="200" />
-      <!-- <div class="message-error" id="div-erro">
+       <div class="message-error" id="div-erro">
         <div id="list-erros"></div>
-      </div> -->
+      </div>
       <div id="formErrors"></div>
       <h2>Crie sua Conta</h2>
       <form id="registerForm">
@@ -53,7 +54,7 @@
           />
         </div>
 
-        <button type="submit" class="btn" onclick="formRegister()">
+        <button type="submit" class="btn" onsubmit="formRegister()">
           Cadastrar
         </button>
       </form>

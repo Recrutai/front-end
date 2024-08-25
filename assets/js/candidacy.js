@@ -1,3 +1,5 @@
+import { getDataForm } from "../js/uteis.js"
+
 var modal = document.getElementById("salaryModal");
 var btn = document.getElementById("applyBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -67,16 +69,6 @@ function getVacancyDetails() {
         "Não foi possível carregar os detalhes da vaga."
       console.error("Erro ao buscar detalhes da vaga:", error);
     });
-}
-
-function getUrlParameter(parameter) {
-
-  const url = window.location.href;
-  const urlObject = new URL(url);
-  const params = new URLSearchParams(urlObject.search);
-
-  return params.get(parameter);
-
 }
 
 async function applyForVacancy(url, data) {
