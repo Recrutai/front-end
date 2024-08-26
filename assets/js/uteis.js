@@ -22,3 +22,18 @@ export function checkBoxVerif(idCheckBox) {
     const check = document.getElementById(idCheckBox);
     return check.checked ? true : false;
 }
+
+export function closeModal(id) {
+    var myModalEl = document.getElementById(id);
+    var modal = bootstrap.Modal.getInstance(myModalEl)
+    modal.hide();
+}
+
+export function validadeField(condition, item) {
+    if(condition) {
+        setError(item);
+    }
+    else {
+        clearError(item);
+    }
+}

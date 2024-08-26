@@ -1,3 +1,5 @@
+import { closeModal } from "../js/uteis.js";
+
 function getDataForm(id) {
     return document.getElementById(id).value;
 }
@@ -25,6 +27,7 @@ async function create(data, url) {
     const response = await fetch(url, options);
 
     if(response.ok) {
+        closeModal("jobsModal");
         window.location.href = "perfil.html";
     }
     else {
@@ -105,7 +108,6 @@ jobsForm.addEventListener("submit", function(event) {
         "dateEnd" : getDataForm("dateEndJ"),
         "currentJob" : checkBoxVerif("flexCheckDefault")
     };
-    
     const url = "http://localhost:8080/api/jobs";
     create(jobData, url)
 })

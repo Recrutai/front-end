@@ -189,38 +189,46 @@
                                 <form id="formJobs">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="title">
+                                            <input type="text" class="form-control required" id="title" oninput="validadeTitle()">
                                             <label for="floatingInputGrid">Título</label>
+                                            <span class="span-required">Tamanho Máx 100 | Mín 4</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="companyName">
+                                            <input type="text" class="form-control required" id="companyName">
                                             <label for="floatingInputGrid">Empresa</label>
+                                            <span class="span-required">Selecione uma Empresa</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="city">
+                                            <input type="text" class="form-control required" id="city" oninput="validadeCity()">
                                             <label for="floatingInputGrid">Cidade</label>
+                                            <span class="span-required">Tamanho Máx 100 | Mín 3</span>
                                         </div>
                                         <label for="floatingInputGrid" class="mb-3">Localidade</label>
                                         <div class="form-floating mb-3">
-                                            <select class="form-select" id="modalityJobSelect">
+                                            <select class="form-select required" id="modalityJobSelect" oninput="validadeSelect()">
+                                                <option value="">-- Selecione --</option>
                                                 <option value="PRESENCIAL">Presencial</option>
                                                 <option value="REMOTO">Remoto</option>
                                                 <option value="HIBRIDO">Hibrido</option>
                                               </select>
+                                              <span class="span-required">Selecione uma Localidade</span>
                                         </div>
                                         <label for="floatingInputGrid" class="mb-3">Modalidade de Trabalho</label>
                                         <div class="form-floating mb-3">
-                                            <select class="form-select" id="typeJobSelect">
+                                            <select class="form-select required" id="typeJobSelect" oninput="validadeSelect()">
+                                                <option value="">-- Selecione --</option>
                                                 <option value="ESTAGIO">Estágio</option>
                                                 <option value="PESQUISA">Pesquisa</option>
                                                 <option value="FREELANCE">Freelance</option>
                                                 <option value="TEMPO_INTEGRAL">Tempo Integral</option>
                                                 <option value="TEMPORARIO">Temporário</option>
                                               </select>
+                                              <span class="span-required">Selecione uma Modalidade</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" id="dateStartJ">
+                                            <input type="date" class="form-control required" id="dateStartJ" oninput="validadeDate()">
                                             <label for="floatingInputGrid">Data de Início</label>
+                                            <span class="span-required">Selecione a Data de Início</span>
                                         </div>
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -232,7 +240,7 @@
                                             <input type="date" class="form-control" id="dateEndJ">
                                             <label for="floatingInputGrid">Data de Conclusão</label>
                                         </div>
-                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cadastrar</button>
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                     </div>
                                 </form>
@@ -370,7 +378,8 @@
             </div>
         </div>
     </div>
-    <!-- <script src="../assets/js/proflie.js"></script> -->
+    <script type="module" src="../assets/js/proflie.js"></script>
+    <script src="../assets/js/validacaoModal.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

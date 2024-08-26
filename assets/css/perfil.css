@@ -60,3 +60,8 @@ header button:hover {
     color: #fff;
     background-color: #145da0	;
 }
+
+.span-required {
+    display: none;
+    color: #e63636;
+}
