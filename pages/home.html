@@ -1,164 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recrutaí</title>
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/home.css" />
 
-    <!-- favicon -->
-    <link
-      rel="shortcut icon"
-      href="../assets/img/favicon.png"
-      type="image/x-icon"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recrutaí</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/home.css" />
 
-    <script src="../assets/js/session.js" defer></script>
-    <script src="../assets/js/vacancy.js" defer></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
 
-    <!-- lib de icones -->
-    <script
-      src="https://kit.fontawesome.com/4dd1a9f4a4.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body id="main-content">
-    <header>
-      <img src="../assets/img/logo.png" width="100" />
+  <script src="../assets/js/session.js" defer></script>
+  <script src="../assets/js/vacancy.js" defer></script>
 
-      <form action="" method="post">
-        <div>
-          <a href="perfil.html">Meu Perfil</a>
-          <button class="logout" type="submit">Sair</button>
+  <!-- lib de icones -->
+  <script src="https://kit.fontawesome.com/4dd1a9f4a4.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="main-content">
+  <header>
+    <img src="../assets/img/logo.png" width="100" />
+
+    <form action="" method="post">
+      <div>
+        <a href="perfil.html">Meu Perfil</a>
+        <button class="logout" type="submit">Sair</button>
+      </div>
+    </form>
+  </header>
+
+  <main>
+    <div class="intro">
+      <div class="descIntro">
+        <h3>Encontre vagas de estagio e pesquisa cientifica</h3>
+        <p>Confira gratuitamente as oportunidades registradas no Recrutaí.</p>
+        <div class="search-container">
+          <form action="" id="search-form">
+            <input type="text" name="search" id="search" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
         </div>
-      </form>
-    </header>
+      </div>
+      <img src="../assets/img/search.png" width="500" />
+    </div>
 
-    <main>
-      <div class="intro">
-        <div class="descIntro">
-          <h3>Encontre vagas de estagio e pesquisa cientifica</h3>
-          <p>Confira gratuitamente as oportunidades registradas no Recrutaí.</p>
-          <div class="search-container">
-            <form action="" id="search-form">
-              <input type="text" name="search" id="search" />
-              <button type="submit" class="search-button">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </div>
+    <div class="showVacancy">
+      <div class="headVacancy">
+        <div class="category">
+          <h5>Exibindo oportunidades para:</h5>
+          <select id="opportunityType">
+            <option value="Estagio" selected>Estágio</option>
+            <option value="Pesquisa">Pesquisa</option>
+          </select>
         </div>
-        <img src="../assets/img/search.png" width="500" />
+
+        <button id="openModalBtn" class="btn">
+          <i class="fas fa-plus"></i> Criar Vaga
+        </button>
       </div>
 
-      <div class="showVacancy">
-        <div class="headVacancy">
-          <div class="category">
-            <h5>Exibindo oportunidades para:</h5>
-            <select id="opportunityType">
-              <option value="Estagio" selected>Estágio</option>
-              <option value="Pesquisa">Pesquisa</option>
-            </select>
-          </div>
+      <div class="cards"></div>
 
-          <button id="openModalBtn" class="btn">
-            <i class="fas fa-plus"></i> Criar Vaga
-          </button>
-        </div>
-
-        <div class="cards"></div>
-
-        <div class="createVacancy">
-          <div id="vacancyModal" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Criar Vaga</h5>
-                <span class="close">&times;</span>
-              </div>
-              <div id="div-erro">
-                <div id="erro"></div>
-              </div>
-              <div class="modal-body">
-                <form id="vacancyForm">
-                  <div class="form-group">
-                    <label for="title">Título:</label>
-                    <input
-                      type="text"
-                      id="title"
-                      name="title"
-                      max-length="120"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Descrição:</label>
-                    <textarea
-                      id="description"
-                      name="description"
-                      max-length="2500"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="workModel">Modelo de Trabalho:</label>
-                    <select id="workModel" name="workModel" required>
-                      <option value="Estagio" selected>Estágio</option>
-                      <option value="Pesquisa">Pesquisa</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="avgSalary">Salário Médio:</label>
-                    <input
-                      type="number"
-                      id="avgSalary"
-                      name="avgSalary"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="positions">Posições:</label>
-                    <input
-                      type="number"
-                      id="positions"
-                      name="positions"
-                      required
-                    />
-                  </div>
-                  <button type="submit" class="btn-createVacancy">
-                    <h6>Criar Vaga</h6>
-                  </button>
-                </form>
-              </div>
+      <div class="createVacancy">
+        <div id="vacancyModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Criar Vaga</h5>
+              <span class="close">&times;</span>
+            </div>
+            <div id="div-erro">
+              <div id="erro"></div>
+            </div>
+            <div class="modal-body">
+              <form id="vacancyForm">
+                <div class="form-group">
+                  <label for="title">Título:</label>
+                  <input type="text" id="title" name="title" maxlength="100" required />
+                </div>
+                <div class="form-group">
+                  <label for="description">Descrição:</label>
+                  <textarea id="description" name="description" maxlength="3850" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="workModel">Modelo de Trabalho:</label>
+                  <select id="workModel" name="workModel" required>
+                    <option value="Estagio" selected>Estágio</option>
+                    <option value="Pesquisa">Pesquisa</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="avgSalary">Salário Médio:</label>
+                  <input type="number" id="avgSalary" name="avgSalary" required />
+                </div>
+                <div class="form-group">
+                  <label for="positions">Posições:</label>
+                  <input type="number" id="positions" name="positions" required />
+                </div>
+                <button type="submit" class="btn-createVacancy">
+                  <h6>Criar Vaga</h6>
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer>
-      <p>© 2024 RECRUTAÍ. Todos os direitos reservados.</p>
-    </footer>
+  <footer>
+    <p>© 2024 RECRUTAÍ. Todos os direitos reservados.</p>
+  </footer>
 
-    <!-- script pro modal de criar vagas -->
-    <script>
-      var modal = document.getElementById("vacancyModal");
-      var btn = document.getElementById("openModalBtn");
-      var span = document.getElementsByClassName("close")[0];
+  <!-- script pro modal de criar vagas -->
+  <script>
+    var modal = document.getElementById("vacancyModal");
+    var btn = document.getElementById("openModalBtn");
+    var span = document.getElementsByClassName("close")[0];
 
-      btn.onclick = function () {
-        modal.style.display = "block";
-      };
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
 
-      span.onclick = function () {
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
         modal.style.display = "none";
-      };
+      }
+    };
+  </script>
+</body>
 
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    </script>
-  </body>
 </html>
