@@ -9,41 +9,42 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/registro.css" />
   <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
-  <script type="module" src="../assets/js/registrer.js" defer></script>
 </head>
 
 <body>
   <div class="container">
     <img src="../assets/img/logo.png" width="200" />
-    <div class="message-error" id="div-erro">
-      <div id="list-erros"></div>
-    </div>
-    <div id="formErrors"></div>
     <h2>Crie sua Conta</h2>
     <form id="registerForm">
       <div class="form-group">
+        <span class="span-required">Nome Inválido! Mín: 4 | Máx: 40</span>
         <label for="firstname">Primeiro Nome</label>
-        <input type="text" id="firstName" name="firstName" required minlength="4" maxlength="40" />
+        <input type="text" id="firstName" name="firstName" class="required" oninput="validNames()" minlength="4" maxlength="40" />
       </div>
       <div class="form-group">
+        <span class="span-required">Sobrenome Inválido! Mín: 4 | Máx: 40</span>
         <label for="lastname">Último Nome</label>
-        <input type="text" id="lastName" name="lastName" required minlength="4" maxlength="40" />
+        <input type="text" id="lastName" name="lastName" class="required" oninput="validNames()" minlength="4" maxlength="40" />
       </div>
       <div class="form-group">
+        <span class="span-required"> O Campo não pode ser vazio | Máx: 40</span>
         <label for="lastname">Área de Atuação</label>
-        <input type="text" id="headline" name="headline" required minlength="4" maxlength="40" />
+        <input type="text" id="headline" name="headline" class="required" oninput="validHeadline()" minlength="4" maxlength="40" />
       </div>
       <div class="form-group">
+        <span class="span-required"> O Campo não pode ser vazio | Máx: 40</span>
         <label for="lastname">Cidade</label>
-        <input type="text" id="city" name="city" required minlength="4" maxlength="40" />
+        <input type="text" id="city" name="city" class="required" oninput="validCity()" minlength="4" maxlength="40" />
       </div>
       <div class="form-group">
+        <span class="span-required">Insira um email válido</span>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required maxlength="200" />
+        <input type="email" id="email" name="email" class="required" oninput="validEmail()" maxlength="200" />
       </div>
       <div class="form-group">
+        <span class="span-required">A Senha deve possuir 11 Caracteres </br>e deve conter números, letras maiscúlas e <br>miniscúlas e caracteres especiais</span>
         <label for="password">Senha</label>
-        <input type="password" id="password" name="password" required minlength="12" maxlength="128" />
+        <input type="password" id="password" name="password" class="required" oninput="validPassword()" minlength="11" maxlength="128" />
       </div>
 
       <button type="submit" class="btn" onsubmit="formRegister()">
@@ -57,6 +58,8 @@
       © 2024 RECRUTAÍ. Todos os direitos reservados.
     </p>
   </footer>
+  <script src="../assets/js/registrerValidator.js"></script>
+  <script type="module" src="../assets/js/registrer.js"></script>
 </body>
 
 </html>

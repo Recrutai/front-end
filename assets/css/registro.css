@@ -121,3 +121,10 @@ li {
 #formErrors li {
   font-size: 0.9em;
 }
+
+.span-required {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: none;
+  color: #8B0000;
+}
