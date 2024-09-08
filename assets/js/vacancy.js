@@ -23,7 +23,7 @@ let allVacancies = [];
 // recupera vagas cadastradas
 getAllVacancys();
 function getAllVacancys() {
-  const url = "http://localhost:8080/api/vacancies";
+  const url = "http://localhost:8080/api/v1/vacancies";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -132,7 +132,7 @@ formVacancy.addEventListener("submit", function (event) {
     publisherId: userId,
   };
 
-  const url = "http://localhost:8080/api/vacancies";
+  const url = "http://localhost:8080/api/v1/vacancies";
   createVacancy(dataForm, url);
 });
 
@@ -140,10 +140,10 @@ formVacancy.addEventListener("submit", function (event) {
 function getVacancyByTitle() {
   let title = document.getElementById("search").value.trim();
   const url = title
-    ? `http://localhost:8080/api/vacancies/search?title=${encodeURIComponent(
+    ? `http://localhost:8080/api/v1/vacancies/search?title=${encodeURIComponent(
       title
     )}`
-    : "http://localhost:8080/api/vacancies";
+    : "http://localhost:8080/api/v1/vacancies";
 
   fetch(url)
     .then((response) => response.json())
@@ -210,7 +210,7 @@ function getVacancyByTitle() {
 //     return;
 //   }
 
-//   const url = `http://localhost:8080/api/vacancies/${vacancyId}`;
+//   const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}`;
 //   fetch(url)
 //     .then((response) => response.json())
 //     .then((vacancy) => {

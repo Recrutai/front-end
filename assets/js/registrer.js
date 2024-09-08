@@ -60,7 +60,7 @@ form.addEventListener("submit", function (event) {
     password: getDataForm("password"),
   };
 
-  const url = "http://localhost:8080/api/auth/register";
+  const url = "http://localhost:8080/api/v1/auth/register";
   registerUser(dataForm, url)
   formRegister()
 

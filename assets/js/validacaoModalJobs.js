@@ -5,7 +5,8 @@ const spans = document.querySelectorAll(".span-required")
 formEmployment.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    validadeCity();
+    validadeTitle();
+    validadeDescription();
     validadeCity();
     validadeSelect();
     validadeDate();
@@ -30,8 +31,8 @@ function validadeTitle() {
     }
 }
 
-function validadeCity() {
-    if(campos[2].value.length <= 2 || campos[0].value.length > 50) {
+function validadeDescription() {
+    if(campos[2].value === '') {
         setError(2);
     }
     else {
@@ -39,24 +40,37 @@ function validadeCity() {
     }
 }
 
-function validadeSelect() {
-    if(campos[3].value === '') {
+function validadeCity() {
+    if(campos[3].value.length <= 2 || campos[3].value.length > 50) {
         setError(3);
+    }
+    else {
+        clearError(3);
+    }
+}
+
+function validadeSelect() {
+    if(campos[1].value === '') {
+        setError(1);
     }
     if(campos[4].value === '') {
         setError(4);
     }
-    else {
-        clearError(3);
-        clearError(4);
-    }
-}
-
-function validadeDate() {
     if(campos[5].value === '') {
         setError(5);
     }
     else {
+        clearError(1);
+        clearError(4);
         clearError(5);
+    }
+}
+
+function validadeDate() {
+    if(campos[6].value === '') {
+        setError(6);
+    }
+    else {
+        clearError(6);
     }
 }

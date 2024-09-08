@@ -47,7 +47,7 @@ function getVacancyDetails() {
     return;
   }
 
-  const url = `http://localhost:8080/api/vacancies/${vacancyId}`;
+  const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}`;
   fetch(url)
     .then((response) => response.json())
     .then((vacancy) => {
@@ -104,7 +104,7 @@ formApplication.addEventListener("submit", function (event) {
     vacancyId: parseInt(getUrlParameter("id")),
     expectedSalary: parseInt(getDataForm("expectedSalary"))
   };
-  const url = "http://localhost:8080/api/applications";
+  const url = "http://localhost:8080/api/v1/applications";
   applyForVacancy(url, data);
 
 })

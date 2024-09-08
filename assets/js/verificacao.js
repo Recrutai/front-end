@@ -27,7 +27,7 @@ form.addEventListener("submit", function (event) {
 
   let verifCode = document.getElementById("codigo").value;
 
-  const url = `http://localhost:8080/api/auth/verify-account?code=${verifCode}`;
+  const url = `http://localhost:8080/api/v1/auth/verify-account?code=${verifCode}`;
   verifyAccount(url);
 });
 
@@ -53,7 +53,7 @@ sendNewCode.addEventListener("click", function (event) {
   event.preventDefault()
 
   let email = sessionStorage.getItem("userEmail");
-  const url = "http://localhost:8080/api/auth/resend-code";
+  const url = "http://localhost:8080/api/v1/auth/resend-code";
   newVerifyCode(url, email);
   document.getElementById("div-erro").style.visibility = "visible";
   document.getElementById("div-erro").style.backgroundColor = "#4a9c5d";

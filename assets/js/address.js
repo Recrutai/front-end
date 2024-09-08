@@ -18,7 +18,7 @@ form.addEventListener("submit", function (event) {
     longitude: getDataForm("longitude"),
   };
   console.log(dados);
-  const url = "http://localhost:8080/api/address";
+  const url = "http://localhost:8080/api/v1/address";
   const options = {
     method: "POST",
     headers: {

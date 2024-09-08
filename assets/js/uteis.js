@@ -37,3 +37,36 @@ export function validadeField(condition, item) {
         clearError(item);
     }
 }
+
+export function addSelect(data, id) {
+    const select = document.getElementById(id);
+    data.forEach(element => {
+        const option = document.createElement('option');
+        option.value = element;
+        option.textContent = element; 
+        select.appendChild(option); 
+    });
+}
+
+export function addSelectObject(data, id) {
+    const select = document.getElementById(id);
+    data.forEach(element => {
+        const option = document.createElement('option');
+        option.value = element.id;
+        option.textContent = element.name; 
+        select.appendChild(option); 
+    });
+}
+
+export function getDataCalendar(data) {
+    return data.substring(0,7)
+}
+
+export function checkActualJob(data, idSelect) {
+    if (checkBoxVerif(idSelect)) {
+        return null;
+    }
+    else {
+        return getDataCalendar(data)
+    }
+}

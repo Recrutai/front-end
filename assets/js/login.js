@@ -44,6 +44,6 @@ form.addEventListener("submit", function (event) {
   };
 
   //console.log(dataForm);
-  const url = "http://localhost:8080/api/auth/login";
+  const url = "http://localhost:8080/api/v1/auth/login";
   login(dataForm, url);
 });

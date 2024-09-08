@@ -1,4 +1,4 @@
-import { getDataForm, getSelectedOption } from "../js/uteis.js";
+import { getDataForm, getSelectedOption, addSelect} from "../js/uteis.js";
 import { create } from "../js/api.js";
 
 const formCreateInstitution = document.getElementById("formInstitution");
@@ -10,31 +10,23 @@ formCreateInstitution.addEventListener("submit", function(event) {
         name: getDataForm("nameInstitution"),
         type: getSelectedOption("type"),
         headline: getDataForm("headline"),
-        ownerId: parseInt(user),
+        founderId: parseInt(user),
         industry: getSelectedOption("industry"),
-        companySizeId: sizesCompany(parseInt(getDataForm("companySizeId"))),
-        headquarters: {
-            streetAddress: "string",
-            city: "string",
-            state: "string",
-            country: "string",
-            postalCode: "string",
-            latitude: 0,
-            longitude: 0
-        },
+        companySize: getSelectedOption("industrySize"),
+        headquarters: null,
         website: getDataForm("website"),
         about: getDataForm("about")
       }
 
-      const url = "http://localhost:8080/api/institutions"
+      //console.log(data);
+      const url = "http://localhost:8080/api/v1/institutions"
       const redirect_url = "perfil.html"
       create(data, url, redirect_url)
-      console.log(data);
 
 });
 
 function loadIndustries() {
-    const url = "http://localhost:8080/api/institutions/industries"
+    const url = "http://localhost:8080/api/v1/industries"
     fetch(url)
     .then(response => {
         if (response.ok) {
@@ -49,44 +41,39 @@ function loadIndustries() {
     });
 }
 
-
-function addSelect(data, id) {
-    const select = document.getElementById(id);
-    data.forEach(element => {
-        const option = document.createElement('option');
-        option.value = element.name;
-        option.textContent = element.name; 
-        select.appendChild(option); 
-    });
-}
-
 loadIndustries()
 
-function sizesCompany(number) {
+function createCardInstitution(institution) {
+    const cardBody = document.getElementById("cardInstitution");
+    const cardInstitution = `
+        <div>
+            <i class="fa-solid fa-building"> ${institution.name}</i>
+        </div>
+        <hr>
+    `
+    cardBody.innerHTML += cardInstitution;
+}
 
-    switch(true) {
-        case(number === 1):
-            return 1
+async function getAllInstitution() {
 
-        case(number >= 2 && number <= 10):
-            return 2
+    const userId = sessionStorage.getItem("userId")
+    const url = "http://localhost:8080/api/v1/institutions";
+    const options = {
+        method: 'GET', 
+        headers: { 'Content-Type': 'application/json'}
+    };
+    const response = await fetch(url, options);
 
-        case(number >= 11 && number <= 50):
-            return 3
-        
-        case(number >= 51 && number <= 200):
-            return 4
-
-        case(number >= 201 && number <= 1000):
-            return 5
-
-        case(number >= 1001 && number <= 5000):
-            return 6
-
-        case(number >= 5001 && number <= 10000):
-            return 7
-
-        case(number > 10001):
-            return 8
+    if(response.ok) {
+        const data = await response.json();
+        if(data.length > 0) {
+            data.forEach(createCardInstitution);
+        }
+        return;
+    }
+    else {
+        console.log(response);
     }
 }
+
+getAllInstitution()

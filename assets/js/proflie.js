@@ -1,40 +1,6 @@
-import { closeModal } from "../js/uteis.js";
-
-function getDataForm(id) {
-    return document.getElementById(id).value;
-}
-
-function getSelectedOption(idSelect) {
-    let  selectElement = document.getElementById(idSelect);
-    let selectedValue = selectElement.value;
-    return selectedValue;
-}
-
-function checkBoxVerif(idCheckBox) {
-    const check = document.getElementById(idCheckBox);
-    return check.checked ? true : false;
-}
-
-async function create(data, url) {
-
-    const options = {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    }
-    const response = await fetch(url, options);
-
-    if(response.ok) {
-        closeModal("jobsModal");
-        window.location.href = "perfil.html";
-    }
-    else {
-        console.log(response);
-        alert("Ocorreu um erro!");
-    }
-}
+import { closeModal, addSelectObject, getDataCalendar, 
+    checkActualJob, getDataForm, getSelectedOption } from "../js/uteis.js";
+import { create } from "../js/api.js";
 
 //Courses
 const coursesForm = document.getElementById("formCourses");
@@ -48,7 +14,7 @@ coursesForm.addEventListener("submit", function(event) {
         "sender" : getDataForm("sender"),
         "conclusion" : getDataForm("dateEnd")
     };
-    const url = "http://localhost:8080/api/jobs";
+    const url = "http://localhost:8080/api/v1/jobs";
     create(courseData, url)
 })
 
@@ -70,7 +36,7 @@ function createCardCourses(course) {
 async function getAllCourses() {
 
     const userId = sessionStorage.getItem("userId")
-    const url = "http://localhost:8080/api/courses/" + userId;
+    const url = "http://localhost:8080/api/v1/courses/" + userId;
     const options = {
         method: 'GET', 
         headers: { 'Content-Type': 'application/json'}
@@ -94,22 +60,46 @@ getAllCourses();
 
 //Jobs
 
+function loadCompanies() {
+    const url = "http://localhost:8080/api/v1/institutions"
+    fetch(url)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }   
+    })
+    .then(data => {
+        addSelectObject(data, "company")
+    })
+    .catch(error => {
+        console.error('Houve um problema com a requisição:', error);
+    });
+}
+
+loadCompanies()
+
 const jobsForm = document.getElementById("formJobs");
 jobsForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    const jobData = {
-        "userId" : sessionStorage.getItem("userId"),
-        "title" : getDataForm("title"),
-        "typeJob" : getSelectedOption("typeJobSelect"),
-        "modalityJob" : getSelectedOption("modalityJobSelect"),
-        "companyName" : getDataForm("companyName"),
-        "city" : getDataForm("city"),
-        "dateStart" : getDataForm("dateStartJ"),
-        "dateEnd" : getDataForm("dateEndJ"),
-        "currentJob" : checkBoxVerif("flexCheckDefault")
-    };
-    const url = "http://localhost:8080/api/jobs";
-    create(jobData, url)
+
+    const userId = sessionStorage.getItem("userId")
+    const data = {
+        "institutionId": parseInt(getSelectedOption("company")),
+        "title": getDataForm("title"),
+        "type": getSelectedOption("typeJobSelect"),
+        "workModel": getSelectedOption("modalityJobSelect"),
+        "address": {
+            "city": getDataForm("city"),
+            "state": "string",
+            "country": "string"
+        },
+        "description": getDataForm("description"),
+        "startDate": getDataCalendar(getDataForm("dateStartJ")),
+        "endDate": checkActualJob(getDataForm("dateEndJ"), "flexCheckDefault"),
+      }
+    const url = `http://localhost:8080/api/v1/users/${userId}/employments`
+    console.log(data)
+    create(data, url, "perfil.html")
 })
 
 function createCardJobs(job) {
@@ -129,7 +119,7 @@ function createCardJobs(job) {
 async function getAllJobs() {
 
     const userId = sessionStorage.getItem("userId")
-    const url = "http://localhost:8080/api/jobs/" + userId;
+    const url = "http://localhost:8080/api/v1/jobs/" + userId;
     const options = {
         method: 'GET', 
         headers: { 'Content-Type': 'application/json'}
