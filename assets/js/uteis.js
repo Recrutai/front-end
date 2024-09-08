@@ -70,3 +70,8 @@ export function checkActualJob(data, idSelect) {
         return getDataCalendar(data)
     }
 }
+
+export function setFields(id, value) {
+    let field = document.getElementById(id);
+    field.innerHTML = value;
+}

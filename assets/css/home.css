@@ -288,3 +288,9 @@ main {
 .logout:hover {
   background-color: #dc3545;
 }
+
+.perfil-link {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 10px;
+}

@@ -15,6 +15,7 @@ if (form) {
     console.log(token);
     if (token) {
       sessionStorage.removeItem("userId");
+      sessionStorage.removeItem("userInfos")
       window.location.href = "login.html";
     }
   });

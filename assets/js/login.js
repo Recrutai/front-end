@@ -15,7 +15,7 @@ async function login(loginData, url) {
   if (response.ok) {
 
     sessionStorage.setItem("userId", data.id);
-    console.log(data);
+    sessionStorage.setItem("userInfos", JSON.stringify(data))
     window.location.href = "home.html";
   } else if (response.status === 403) {
     sessionStorage.setItem("userEmail", loginData.email);

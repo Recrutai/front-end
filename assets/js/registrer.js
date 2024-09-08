@@ -56,8 +56,13 @@ form.addEventListener("submit", function (event) {
     firstName: getDataForm("firstName"),
     lastName: getDataForm("lastName"),
     email: getDataForm("email"),
-    headline: "Tech",
+    headline: getDataForm("headline"),
     password: getDataForm("password"),
+    location: {
+    "city": getDataForm("city"),
+    "state": "string",
+    "country": "string"
+  }
   };
 
   const url = "http://localhost:8080/api/v1/auth/register";

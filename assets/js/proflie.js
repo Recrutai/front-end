@@ -1,5 +1,5 @@
 import { closeModal, addSelectObject, getDataCalendar, 
-    checkActualJob, getDataForm, getSelectedOption } from "../js/uteis.js";
+    checkActualJob, getDataForm, getSelectedOption, setFields } from "../js/uteis.js";
 import { create } from "../js/api.js";
 
 //Courses
@@ -140,3 +140,17 @@ async function getAllJobs() {
 
 getAllJobs();
 //Jobs
+
+function loadInfoUser() {
+
+    const user = sessionStorage.getItem("userInfos")
+    const userJson = JSON.parse(user);
+    setFields("name-user", userJson.firstName + " " + userJson.lastName)
+    setFields("headline-user", userJson.headline)
+    setFields("location-user", userJson.location.city)
+    setFields("name-user-list", userJson.firstName + " " + userJson.lastName)
+    setFields("email-user-list", userJson.email)
+    setFields("location-user-list", userJson.location.city)
+}
+
+loadInfoUser()
