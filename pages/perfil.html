@@ -143,7 +143,7 @@
                                             <label for="floatingInputGrid">Nome</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="sender">
+                                            <input type="number" class="form-control" id="schoolId">
                                             <label for="floatingInputGrid">Organização emissora</label>
                                         </div>
                                         <div class="form-floating mb-3">
@@ -151,13 +151,14 @@
                                             <label for="floatingInputGrid">Descrição</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" id="dateStart">
-                                            <label for="floatingInputGrid">Data de Início</label>
+                                            <input type="number" class="form-control" id="workloadHours">
+                                            <label for="floatingInputGrid">Carga Horária</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" id="dateEnd">
+                                            <input type="date" class="form-control" id="completionDate">
                                             <label for="floatingInputGrid">Data de Conclusão</label>
                                         </div>
+                                        
                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cadastrar</button>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                     </div>
@@ -204,9 +205,9 @@
                                         <div class="form-floating mb-3">
                                             <select class="form-select required" id="modalityJobSelect" oninput="validadeSelect()">
                                                 <option value="">-- Selecione --</option>
-                                                <option value="PRESENCIAL">Presencial</option>
+                                                <option value="ON_SITE">Presencial</option>
                                                 <option value="REMOTE">Remoto</option>
-                                                <option value="HIBRIDO">Hibrido</option>
+                                                <option value="HYBRID">Hibrido</option>
                                               </select>
                                               <span class="span-required">Escolha uma Opção</span>
                                         </div>
@@ -337,20 +338,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <i class="fa-solid fa-building"> Accenture</i>
-                                        <p>Desenvolvedor</p>
-                                        <p>Hibrido | Recife - PE</p>
-                                        <p>24/04/2024 | Atual</p>
-                                    </div>
-                                    <hr>
-                                    <div>
-                                        <i class="fa-solid fa-building"> Claro</i>
-                                        <p>Desenvolvedor</p>
-                                        <p>Hibrido | Recife - PE</p>
-                                        <p>24/04/2024 | Atual</p>
-                                    </div>
-                                    <hr>
                                 </div>
                             </div>
                         </div>
@@ -371,20 +358,6 @@
                                             </div>
                                         </div>
                                         </div>
-                                        <div>
-                                            <i class="fa-solid fa-graduation-cap">Alura</i>
-                                            <p>Python</p>
-                                            <p>POO com Python</p>
-                                            <p>24/04/2024 | 26/06/2024</p>
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <i class="fa-solid fa-graduation-cap">Alura</i>
-                                            <p>Java</p>
-                                            <p>POO com Java</p>
-                                            <p>24/04/2024 | 26/06/2024</p>
-                                        </div>
-                                        <hr>
                                 </div>
                             </div>
                         </div>

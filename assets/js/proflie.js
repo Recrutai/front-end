@@ -1,4 +1,4 @@
-import { closeModal, addSelectObject, getDataCalendar, 
+import { addSelectObject, getDataCalendar, 
     checkActualJob, getDataForm, getSelectedOption, setFields } from "../js/uteis.js";
 import { create } from "../js/api.js";
 
@@ -6,16 +6,16 @@ import { create } from "../js/api.js";
 const coursesForm = document.getElementById("formCourses");
 coursesForm.addEventListener("submit", function(event) {
     event.preventDefault();
-
+    const user = sessionStorage.getItem("userId");
     const courseData = {
-        "userId" : sessionStorage.getItem("userId"),
+        "schoolId" : parseInt(getDataForm("schoolId")),
         "name" : getDataForm("name"),
         "description" : getDataForm("description"),
-        "sender" : getDataForm("sender"),
-        "conclusion" : getDataForm("dateEnd")
+        "workloadHours" : parseInt(getDataForm("workloadHours")),
+        "completionDate" : getDataCalendar(getDataForm("completionDate"))
     };
-    const url = "http://localhost:8080/api/v1/jobs";
-    create(courseData, url)
+    const url = `http://localhost:8080/api/v1/users/${user}/courses`;
+    create(courseData, url, "perfil.html")
 })
 
 
@@ -23,10 +23,11 @@ function createCardCourses(course) {
     const cardBody = document.getElementById("cardCourses");
     const cardCourse = `
         <div>
-            <i class="fa-solid fa-graduation-cap">${course.sender}</i>
-            <p>${course.name}</p>
-            <p>${course.description}</p>
-            <p>${course.dateStart} | ${course.conclusion}</p>
+            <i class="fa-solid fa-graduation-cap">${"Falta Pegar o Nome"}</i>
+            <p>Nome: ${course.name}</p>
+            <p>Descrição: ${course.description}</p>
+            <p>Carga Horária: ${course.workloadHours} Horas</p>
+            <p>Conclusão: ${course.completionDate}</p>
         </div>
         <hr>
     `
@@ -36,7 +37,7 @@ function createCardCourses(course) {
 async function getAllCourses() {
 
     const userId = sessionStorage.getItem("userId")
-    const url = "http://localhost:8080/api/v1/courses/" + userId;
+    const url = `http://localhost:8080/api/v1/users/${userId}/courses`;
     const options = {
         method: 'GET', 
         headers: { 'Content-Type': 'application/json'}
@@ -104,12 +105,13 @@ jobsForm.addEventListener("submit", function(event) {
 
 function createCardJobs(job) {
     const cardBody = document.getElementById("cardJobs");
+    const dateEnd = !job.endDate ? 'Atual': job.endDate;
     const cardCourse = `
         <div>
-            <i class="fa-solid fa-building">${job.companyName}</i>
-            <p>${job.title}</p>
-            <p>${job.modalityJob} | ${job.city}</p>
-            <p>${job.dateStart} | ${job.dateEnd}</p>
+            <i class="fa-solid fa-building">${"Falta Pegar o Nome"}</i>
+            <p>Cargo: ${job.title}</p>
+            <p>Modalidade: ${job.workModel} | ${job.address.city}</p>
+            <p>Período: ${job.startDate} | ${dateEnd }</p>
         </div>
         <hr>
     `
@@ -119,7 +121,7 @@ function createCardJobs(job) {
 async function getAllJobs() {
 
     const userId = sessionStorage.getItem("userId")
-    const url = "http://localhost:8080/api/v1/jobs/" + userId;
+    const url = `http://localhost:8080/api/v1/users/${userId}/employments`
     const options = {
         method: 'GET', 
         headers: { 'Content-Type': 'application/json'}
