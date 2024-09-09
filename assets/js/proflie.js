@@ -23,7 +23,7 @@ function createCardCourses(course) {
     const cardBody = document.getElementById("cardCourses");
     const cardCourse = `
         <div>
-            <i class="fa-solid fa-graduation-cap">${"Falta Pegar o Nome"}</i>
+            <i class="fa-solid fa-graduation-cap">${course.school.name}</i>
             <p>Nome: ${course.name}</p>
             <p>Descrição: ${course.description}</p>
             <p>Carga Horária: ${course.workloadHours} Horas</p>
@@ -108,7 +108,7 @@ function createCardJobs(job) {
     const dateEnd = !job.endDate ? 'Atual': job.endDate;
     const cardCourse = `
         <div>
-            <i class="fa-solid fa-building">${"Falta Pegar o Nome"}</i>
+            <i class="fa-solid fa-building">${job.institution.name}</i>
             <p>Cargo: ${job.title}</p>
             <p>Modalidade: ${job.workModel} | ${job.address.city}</p>
             <p>Período: ${job.startDate} | ${dateEnd }</p>

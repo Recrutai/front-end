@@ -40,6 +40,6 @@ async function registerUser(data, url) {
   }
   else {
     console.log(response);
-    alert("Ocorreu um erro!");
+    alert('Corrija os erro abaixo!')
   }
 }
