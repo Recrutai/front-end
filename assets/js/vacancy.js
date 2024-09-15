@@ -1,6 +1,6 @@
-function getDataForm(id) {
-  return document.getElementById(id).value;
-}
+import { getDataForm, loadCompanies, getSelectedOption } from "../js/uteis.js";
+
+loadCompanies("institutionId")
 
 document.addEventListener("DOMContentLoaded", function () {
   // carrega todas as vagas aqui
@@ -20,7 +20,7 @@ document
   .addEventListener("change", filterVacancies);
 
 let allVacancies = [];
-// recupera vagas cadastradas
+// // recupera vagas cadastradas
 getAllVacancys();
 function getAllVacancys() {
   const url = "http://localhost:8080/api/v1/vacancies";
@@ -86,10 +86,6 @@ function filterVacancies() {
   }
 }
 
-function getDataForm(id) {
-  return document.getElementById(id).value;
-}
-
 // criar vaga atraves do modal
 async function createVacancy(vacancyData, url) {
   const response = await fetch(url, {
@@ -99,20 +95,16 @@ async function createVacancy(vacancyData, url) {
     },
     body: JSON.stringify(vacancyData),
   });
-  console.log(vacancyData);
-  console.log(response);
   if (response.ok) {
     const data = await response.json();
     console.log(data);
     window.location.href = "home.html";
-  } else if (response.status === 404) {
-    document.getElementById("div-erro").style.visibility = "visible";
-    let erro = document.getElementById("erro");
-    erro.innerHTML = "Membro não encontrado!";
-  } else {
-    document.getElementById("div-erro").style.visibility = "visible";
-    let erro = document.getElementById("erro");
-    erro.innerHTML = "Erro ao cadastrar a vaga!";
+  }
+  else if(response.status === 400) {
+    alert('Corrija os dados do formulário!')
+  }
+  else {
+    console.error(response);
   }
 }
 
@@ -124,15 +116,23 @@ formVacancy.addEventListener("submit", function (event) {
 
   const dataForm = {
     title: getDataForm("title"),
+    institutionId: parseInt(getSelectedOption("institutionId")),
     description: getDataForm("description"),
-    workModel: getDataForm("workModel"),
-    avgSalary: parseInt(getDataForm("avgSalary")),
+    employmentType: getSelectedOption("employmentType"),
+    workModel: getSelectedOption("workModel"),
+    location: {
+      city: getSelectedOption("cities-Select"),
+      state: getSelectedOption("states-Select"),
+      country: "Brasil"
+    },
+    salary: parseInt(getDataForm("salary")),
     positions: parseInt(getDataForm("positions")),
-    recruiterId: userId,
-    publisherId: userId,
+    recruiterId: parseInt(userId),
+    publishedById: parseInt(userId),
   };
 
   const url = "http://localhost:8080/api/v1/vacancies";
+  console.log(dataForm);
   createVacancy(dataForm, url);
 });
 
@@ -140,9 +140,7 @@ formVacancy.addEventListener("submit", function (event) {
 function getVacancyByTitle() {
   let title = document.getElementById("search").value.trim();
   const url = title
-    ? `http://localhost:8080/api/v1/vacancies/search?title=${encodeURIComponent(
-      title
-    )}`
+    ? `http://localhost:8080/api/v1/vacancies?title=${title}`
     : "http://localhost:8080/api/v1/vacancies";
 
   fetch(url)
@@ -173,7 +171,7 @@ function getVacancyByTitle() {
             <div class="card-content">
               <h3>${truncatedTitle}</h3>
               <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
-              <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
+              <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
               <p><strong>Vagas:</strong> ${vacancy.positions || "N/A"}</p>
             </div>
 
@@ -199,47 +197,37 @@ function getVacancyByTitle() {
     });
 }
 
-// recupera vaga em detalhes e se candidata
-// function getVacancyDetails() {
-//   const params = new URLSearchParams(window.location.search);
-//   const vacancyId = params.get("id");
+//Recupera vaga em detalhes e se candidata 
+function getVacancyDetails() {
+  const params = new URLSearchParams(window.location.search);
+  const vacancyId = params.get("id");
 
-//   if (!vacancyId) {
-//     document.getElementById("vacancyDetails").innerHTML =
-//       "ID da vaga não encontrado.";
-//     return;
-//   }
+  if (!vacancyId) {
+    document.getElementById("vacancyDetails").innerHTML =
+      "ID da vaga não encontrado.";
+    return;
+  }
 
-//   const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}`;
-//   fetch(url)
-//     .then((response) => response.json())
-//     .then((vacancy) => {
-//       const detailsContainer = document.getElementById("vacancyDetails");
-//       detailsContainer.innerHTML = `
-//             <h2>${vacancy.title}</h2>
-//             <p><strong>Descrição:</strong> ${vacancy.description}</p>
-//             <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
-//             <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
-//             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
-//             <p><strong>Vagas:</strong> ${vacancy.positions}</p>
-//           `;
+  const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((vacancy) => {
+      const detailsContainer = document.getElementById("vacancyDetails");
+      detailsContainer.innerHTML = `
+            <h2>${vacancy.title}</h2>
+            <p><strong>Descrição:</strong> ${vacancy.description}</p>
+            <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+            <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
+            <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
+            <p><strong>Vagas:</strong> ${vacancy.positions}</p>
+          `;
 
-//       // const applyBtn = document.getElementById("applyBtn");
-//       // applyBtn.onclick = () => applyForVacancy(vacancyId);
-//     })
-//     .catch((error) => {
-//       document.getElementById("vacancyDetails").innerHTML =
-//         "Não foi possível carregar os detalhes da vaga."
-//       console.error("Erro ao buscar detalhes da vaga:", error);
-//     });
-// }
-
-function getUrlParameter(parameter) {
-  
-  const url = window.location.href;
-  const urlObject = new URL(url);
-  const params = new URLSearchParams(urlObject.search);
-
-  return params.get(parameter);
-
+      // const applyBtn = document.getElementById("applyBtn");
+      // applyBtn.onclick = () => applyForVacancy(vacancyId);
+    })
+    .catch((error) => {
+      document.getElementById("vacancyDetails").innerHTML =
+        "Não foi possível carregar os detalhes da vaga."
+      console.error("Erro ao buscar detalhes da vaga:", error);
+    });
 }

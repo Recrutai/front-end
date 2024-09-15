@@ -58,6 +58,26 @@ export function addSelectObject(data, id) {
     });
 }
 
+export function addSelectIbge(data, id) {
+    const select = document.getElementById(id);
+    data.forEach(element => {
+        const option = document.createElement('option');
+        option.value = element.sigla;
+        option.textContent = element.nome; 
+        select.appendChild(option); 
+    });
+}
+
+export function addSelectIbgeCity(data, id) {
+    const select = document.getElementById(id);
+    data.forEach(element => {
+        const option = document.createElement('option');
+        option.value = element.nome;
+        option.textContent = element.nome; 
+        select.appendChild(option); 
+    });
+}
+
 export function getDataCalendar(data) {
     return data.substring(0,7)
 }
@@ -74,4 +94,20 @@ export function checkActualJob(data, idSelect) {
 export function setFields(id, value) {
     let field = document.getElementById(id);
     field.innerHTML = value;
+}
+
+export function loadCompanies(selectId) {
+    const url = "http://localhost:8080/api/v1/institutions"
+    fetch(url)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }   
+    })
+    .then(data => {
+        addSelectObject(data, selectId)
+    })
+    .catch(error => {
+        console.error('Houve um problema com a requisição:', error);
+    });
 }

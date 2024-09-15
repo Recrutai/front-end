@@ -11,8 +11,9 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
 
+  <script type="module" src="../assets/js/ibge.js" defer></script>
   <script src="../assets/js/session.js" defer></script>
-  <script src="../assets/js/vacancy.js" defer></script>
+  <script type="module" src="../assets/js/vacancy.js"></script>
 
   <!-- lib de icones -->
   <script src="https://kit.fontawesome.com/4dd1a9f4a4.js" crossorigin="anonymous"></script>
@@ -52,8 +53,9 @@
         <div class="category">
           <h5>Exibindo oportunidades para:</h5>
           <select id="opportunityType">
-            <option value="Estagio" selected>Estágio</option>
-            <option value="Pesquisa">Pesquisa</option>
+            <option value="ON_SITE">Presencial</option>
+            <option value="REMOTE">Remoto</option>
+            <option value="HYBRID">Hibrido</option>
           </select>
         </div>
 
@@ -78,26 +80,67 @@
               <form id="vacancyForm">
                 <div class="form-group">
                   <label for="title">Título:</label>
-                  <input type="text" id="title" name="title" maxlength="100" required />
+                  <input type="text" id="title" name="title" maxlength="100" class="required" oninput="validTitulo()"/>
+                  <span class="span-required">Tamanho Mín 5 | Máx 100</span>
                 </div>
                 <div class="form-group">
                   <label for="description">Descrição:</label>
-                  <textarea id="description" name="description" maxlength="3850" required></textarea>
+                  <textarea id="description" name="description" maxlength="3850" class="required" oninput="validDescripton()"></textarea>
+                  <span class="span-required">A descrição não pode ser vazia e nem maior que 3850 caracteres</span>
                 </div>
                 <div class="form-group">
-                  <label for="workModel">Modelo de Trabalho:</label>
-                  <select id="workModel" name="workModel" required>
-                    <option value="Estagio" selected>Estágio</option>
-                    <option value="Pesquisa">Pesquisa</option>
+                  <label for="institutionId">Empresa:</label>
+                  <select id="institutionId" name="institutionId" class="required" oninput="validSelectCompany()">
+                    <option value="" selected>-- Selecione --</option>
                   </select>
+                  <span class="span-required">Escolha uma Empresa</span>
                 </div>
                 <div class="form-group">
-                  <label for="avgSalary">Salário Médio:</label>
-                  <input type="number" id="avgSalary" name="avgSalary" required />
+                  <label for="employmentType">Tipo de Trabalho:</label>
+                  <select id="employmentType" name="employmentType" class="required" oninput="validSelectEmployment()">
+                    <option value="" selected>-- Selecione --</option>
+                      <option value="CONTRACT">Contrato</option>
+                      <option value="FREELANCE">Freelancer</option>
+                      <option value="INTERNSHIP">Estágio</option>
+                      <option value="FULL_TIME">Tempo Integral</option>
+                      <option value="PART_TIME">Meio Período</option>
+                      <option value="INDIRECT_CONTRACT">Temporário</option>
+                  </select>
+                  <span class="span-required">Escolha uma Opção</span>
+                </div>
+                <div class="form-group">
+                  <label for="workModel">Modelo de Atuação:</label>
+                  <select id="workModel" name="workModel"  class="required" oninput="validSelectWork()">
+                    <option value="" selected>-- Selecione --</option>
+                    <option value="ON_SITE">Presencial</option>
+                    <option value="REMOTE">Remoto</option>
+                    <option value="HYBRID">Hibrido</option>
+                </select>
+                <span class="span-required">Escolha uma Opção</span>
+                </div>
+                <div class="form-group">
+                  <label for="state">Estado:</label>
+                  <select id="states-Select" name="state" class="required" oninput="validState()">
+                    <option value="" selected>-- Selecione --</option>
+                  </select>
+                  <span class="span-required">Escolha o estado</span>
+                </div>
+                <div class="form-group">
+                  <label for="state">Cidade:</label>
+                  <select id="cities-Select" name="state" class="required" oninput="validState()">
+                    <option value="" selected>-- Selecione --</option>
+                  </select>
+                  <span class="span-required">Escolha a cidade</span>
+                </div>
+                <div class="form-group">
+                  <label for="salary">Salário Médio:</label>
+                  <input type="number" id="salary" name="salary" class="required" oninput="validSalary()"/>
+                  <span class="salary-required">O salário deve ser maior que 0.</span>
                 </div>
                 <div class="form-group">
                   <label for="positions">Posições:</label>
-                  <input type="number" id="positions" name="positions" required />
+                  <input type="number" id="positions" name="positions" class="required" oninput="validPositions()"/>
+                  <span class="positions-required">O número de vagas deve ser maior que 0.</span>
                 </div>
                 <button type="submit" class="btn-createVacancy">
                   <h6>Criar Vaga</h6>
@@ -134,6 +177,7 @@
       }
     };
   </script>
+  <script src="../assets/js/vacancyValidator.js" defer></script>
 </body>
 
 </html>
