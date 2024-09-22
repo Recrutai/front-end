@@ -61,7 +61,7 @@ header button:hover {
     background-color: #145da0	;
 }
 
-.span-required, .name-valid, .select-school-valid {
+.span-required, .name-valid, .select-school-valid, .span-required-Inst {
     display: none;
     color: #e63636;
 }

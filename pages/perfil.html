@@ -267,13 +267,14 @@
                                 <form id="formInstitution">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control required-Inst" id="nameInstitution" oninput="validadeName()">
+                                            <input type="text" class="form-control required-Inst" id="nameInstitution" oninput="validName()">
                                             <label for="floatingInputGrid">Nome</label>
                                             <span class="span-required-Inst">Tamanho Máx 100 | Mín 3</span>
                                         </div>
                                         <label for="floatingInputGrid" class="mb-3">Tipo</label>
                                         <div class="form-floating mb-3">
-                                            <select class="form-select required-Inst" id="type">
+                                            <select class="form-select required-Inst" id="type" oninput="validSelect()">
+                                                <option value="">-- Selecione --</option>
                                                 <option value="PUBLIC">Pública</option>
                                                 <option value="PRIVATE">Privada</option>
                                                 <option value="ASSOCIATION">Associação</option>
@@ -282,19 +283,21 @@
                                               <span class="span-required-Inst">Escolha uma Opção</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control required-Inst" id="headline">
+                                            <input type="text" class="form-control required-Inst" id="headline" oninput="validHeadLine()">
                                             <label for="floatingInputGrid">Área de Atuação</label>
                                             <span class="span-required-Inst">Tamanho Máx 100 | Mín 4</span>
                                         </div>
                                         <label for="floatingInputGrid" class="mb-3">Ramo</label>
                                         <div class="form-floating mb-3">
-                                            <select class="form-select required-Inst" id="industry">
+                                            <select class="form-select required-Inst" id="industry" oninput="validSelect()">
+                                                <option value="">-- Selecione --</option>
                                             </select>
                                             <span class="span-required-Inst">Escolha uma Opção</span>
                                         </div>
                                         <label for="floatingInputGrid" class="mb-3">Número de Funcionários</label>
                                         <div class="form-floating mb-3">
-                                            <select class="form-select required-Inst" id="industrySize">
+                                            <select class="form-select required-Inst" id="industrySize" oninput="validSelect()">
+                                                <option value="">-- Selecione --</option>
                                                 <option value="1">1 Funcionário</option>
                                                 <option value="2 - 10">Entre 2 - 10 Funcionários</option>
                                                 <option value="11 - 50">Entre 11 - 50 Funcionários</option>
@@ -308,12 +311,12 @@
                                             <span class="span-required-Inst">Escolha uma Opção</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control required-Inst" id="website" oninput="validadeAbout()">
+                                            <input type="text" class="form-control required-Inst" id="website" oninput="validAbout()">
                                             <label for="floatingInputGrid">Website</label>
                                             <span class="span-required-Inst">Tamanho Máx 100 - O campo não pode ser vazio!</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control required-Inst" id="about" oninput="validadeAbout()">
+                                            <input type="text" class="form-control required-Inst" id="about" oninput="validSite()">
                                             <label for="floatingInputGrid">Sobre</label>
                                             <span class="span-required-Inst">Tamanho Máx 100 - O campo não pode ser vazio!</span>
                                         </div>
@@ -375,6 +378,7 @@
     <script type="module" src="../assets/js/proflie.js"></script>
     <script src="../assets/js/validacaoModalCourses.js"></script>
     <script src="../assets/js/validacaoModalJobs.js"></script>
+    <script src="../assets/js/validacaoModalInstition.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

@@ -103,7 +103,7 @@ export function setFields(id, value) {
 }
 
 export function loadCompanies(selectId) {
-    const url = "http://localhost:8080/api/v1/institutions"
+    const url = "http://localhost:8080/api/v1/organizations"
     fetch(url)
     .then(response => {
         if (response.ok) {

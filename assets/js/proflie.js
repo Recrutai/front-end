@@ -65,7 +65,7 @@ getAllCourses();
 //Jobs
 
 function loadCompanies() {
-    const url = "http://localhost:8080/api/v1/institutions"
+    const url = "http://localhost:8080/api/v1/organizations"
     fetch(url)
     .then(response => {
         if (response.ok) {
@@ -89,7 +89,7 @@ jobsForm.addEventListener("submit", function(event) {
 
     const userId = sessionStorage.getItem("userId")
     const data = {
-        "institutionId": parseInt(getSelectedOption("company")),
+        "organizationId": parseInt(getSelectedOption("company")),
         "title": getDataForm("title"),
         "type": getSelectedOption("typeJobSelect"),
         "workModel": getSelectedOption("modalityJobSelect"),
