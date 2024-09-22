@@ -18,6 +18,12 @@ export function getSelectedOption(idSelect) {
     return selectedValue;
 }
 
+export function getSelectedText(idSelect) {
+    let  selectElement = document.getElementById(idSelect);
+    let selectedText = selectElement.options[selectElement.selectedIndex].text;
+    return selectedText;
+}
+
 export function checkBoxVerif(idCheckBox) {
     const check = document.getElementById(idCheckBox);
     return check.checked ? true : false;

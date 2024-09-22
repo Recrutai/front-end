@@ -1,5 +1,6 @@
 import { addSelectObject, getDataCalendar, 
-    checkActualJob, getDataForm, getSelectedOption, setFields } from "../js/uteis.js";
+    checkActualJob, getDataForm, getSelectedOption, 
+    getSelectedText, setFields } from "../js/uteis.js";
 import { create } from "../js/api.js";
 
 //Courses
@@ -8,7 +9,8 @@ coursesForm.addEventListener("submit", function(event) {
     event.preventDefault();
     const user = sessionStorage.getItem("userId");
     const courseData = {
-        "schoolId" : parseInt(getDataForm("schoolId")),
+        "schoolId" : parseInt(getSelectedOption("schoolId")),
+        "fallbackSchoolName" : getSelectedText("schoolId"),
         "name" : getDataForm("name"),
         "description" : getDataForm("description"),
         "workloadHours" : parseInt(getDataForm("workloadHours")),
@@ -16,6 +18,7 @@ coursesForm.addEventListener("submit", function(event) {
     };
     const url = `http://localhost:8080/api/v1/users/${user}/courses`;
     create(courseData, url, "perfil.html")
+    console.log(courseData)
 })
 
 
@@ -71,6 +74,7 @@ function loadCompanies() {
     })
     .then(data => {
         addSelectObject(data, "company")
+        addSelectObject(data, "schoolId")
     })
     .catch(error => {
         console.error('Houve um problema com a requisição:', error);
@@ -156,3 +160,5 @@ function loadInfoUser() {
 }
 
 loadInfoUser()
+
+
