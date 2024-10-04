@@ -1,5 +1,3 @@
-import { getDataForm } from "../js/uteis.js"
-
 var modal = document.getElementById("salaryModal");
 var btn = document.getElementById("applyBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -56,7 +54,7 @@ function getVacancyDetails() {
             <h2>${vacancy.title}</h2>
             <p><strong>Descrição:</strong> ${vacancy.description}</p>
             <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
-            <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
+            <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
             <p><strong>Vagas:</strong> ${vacancy.positions}</p>
           `;
