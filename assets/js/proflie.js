@@ -112,9 +112,9 @@ function createCardJobs(job) {
     const dateEnd = !job.endDate ? 'Atual': job.endDate;
     const cardCourse = `
         <div>
-            <i class="fa-solid fa-building">${job.institution.name}</i>
+            <i class="fa-solid fa-building">${job.organization.name}</i>
             <p>Cargo: ${job.title}</p>
-            <p>Modalidade: ${job.workModel} | ${job.address.city}</p>
+            <p>Modalidade: ${job.workModel} | ${job.address}</p>
             <p>Período: ${job.startDate} | ${dateEnd }</p>
         </div>
         <hr>
@@ -153,10 +153,10 @@ function loadInfoUser() {
     const userJson = JSON.parse(user);
     setFields("name-user", userJson.firstName + " " + userJson.lastName)
     setFields("headline-user", userJson.headline)
-    setFields("location-user", userJson.location.city)
+    setFields("location-user", userJson.location)
     setFields("name-user-list", userJson.firstName + " " + userJson.lastName)
     setFields("email-user-list", userJson.email)
-    setFields("location-user-list", userJson.location.city)
+    setFields("location-user-list", userJson.location)
 }
 
 loadInfoUser()
