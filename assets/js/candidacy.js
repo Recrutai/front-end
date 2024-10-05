@@ -64,6 +64,7 @@ function getVacancyDetails() {
             <h2>${vacancy.title}</h2>
             <p><strong>Descrição:</strong> ${vacancy.description}</p>
             <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+            <p><strong>Local:</strong> ${vacancy.organization.headquarters}</p>
             <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
             <p><strong>Vagas:</strong> ${vacancy.positions}</p>

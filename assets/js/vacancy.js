@@ -72,8 +72,8 @@ function filterVacancies() {
        <div class="card-content">
         <h3>${truncatedTitle}</h3>
         <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
-        <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
-        <p><strong>Vagas:</strong> ${vacancy.positions}</p>
+        <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
+        <p><strong>Local:</strong> ${vacancy.location}</p>
       </div>
 
       <a href="vacancy-details.html?id=${vacancy.id}" class="btn-details">
