@@ -13,7 +13,7 @@ form.addEventListener("submit", function (event) {
     password: getDataForm("password"),
     location: {
     "city": getDataForm("city"),
-    "state": "string",
+    "state": "PE",
     "country": "string"
   }
   };

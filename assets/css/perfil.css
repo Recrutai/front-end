@@ -65,3 +65,34 @@ header button:hover {
     display: none;
     color: #e63636;
 }
+
+.card-application {
+    padding: 10px; 
+    margin: 30px;
+}
+
+.card-title {
+    display: flex;
+}
+
+.name-organization {
+    font-size: 25px;
+    gap: 15px;
+}
+
+.empty-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.no-data {
+    padding: 15px;
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    width: 100vh;
+}
