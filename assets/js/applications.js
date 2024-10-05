@@ -92,7 +92,6 @@ async function getCandidates() {
         const data = await response.json();
         if(data.length > 0) {
             data.forEach(createCardCandidates);
-            console.log(data);
         }
         else {
             const div = document.getElementById("empty");
@@ -105,6 +104,8 @@ async function getCandidates() {
                 </div>
             `
         }
+        const vacancyName = document.getElementById("vacancyName");
+        vacancyName.innerHTML = data[0].vacancy.title;
     }
     else {
         console.log(response);
@@ -124,7 +125,7 @@ function createCardCandidates(data) {
                 <p><strong>Cidade:</strong> ${data.candidate.location}</p>
                 <p><strong>Espectativa Salarial:</strong> R$ ${data.expectedSalary},00</p>
             </div>
-            <button type="submit" class="btn btn-primary">Marcar Entrevista</button>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#interViewModal">Marcar Entrevista</button>
         </li>
     `
     cardApplication.innerHTML += card;

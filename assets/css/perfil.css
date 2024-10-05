@@ -101,3 +101,8 @@ header button:hover {
     margin-left: 15%;
     margin-right: 15%;
 }
+
+.vacancyDetails {
+    color: aliceblue;
+    padding-bottom: 1%;
+}
