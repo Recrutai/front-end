@@ -96,3 +96,8 @@ header button:hover {
     border: 1px solid #f5c6cb;
     width: 100vh;
 }
+
+.card-item {
+    margin-left: 15%;
+    margin-right: 15%;
+}
