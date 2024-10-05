@@ -12,7 +12,6 @@ async function getApplicationsByUser() {
         const data = await response.json();
         if(data.length > 0) {
             data.forEach(createCardApplication);
-            console.log(data);
         }
         else {
             const body = document.getElementById("empty");

@@ -55,10 +55,14 @@ function getVacancyDetails() {
     return;
   }
 
+  const userID = sessionStorage.getItem("userId")
   const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}`;
   fetch(url)
     .then((response) => response.json())
     .then((vacancy) => {
+      if(vacancy.recruiter.id == userID) {
+        btn.style.display = "none";
+      }
       const detailsContainer = document.getElementById("vacancyDetails");
       detailsContainer.innerHTML = `
             <h2>${vacancy.title}</h2>
@@ -69,9 +73,6 @@ function getVacancyDetails() {
             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
             <p><strong>Vagas:</strong> ${vacancy.positions}</p>
           `;
-
-      // const applyBtn = document.getElementById("applyBtn");
-      // applyBtn.onclick = () => applyForVacancy(vacancyId);
     })
     .catch((error) => {
       document.getElementById("vacancyDetails").innerHTML =
