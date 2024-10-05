@@ -116,7 +116,7 @@ formVacancy.addEventListener("submit", function (event) {
 
   const dataForm = {
     title: getDataForm("title"),
-    institutionId: parseInt(getSelectedOption("institutionId")),
+    organizationId: parseInt(getSelectedOption("institutionId")),
     description: getDataForm("description"),
     employmentType: getSelectedOption("employmentType"),
     workModel: getSelectedOption("workModel"),

@@ -35,6 +35,16 @@ function getDataForm(id) {
   return document.getElementById(id).value;
 }
 
+function getUrlParameter(parameter) {
+
+    const url = window.location.href;
+    const urlObject = new URL(url);
+    const params = new URLSearchParams(urlObject.search);
+  
+    return params.get(parameter);
+  
+}
+
 function getVacancyDetails() {
   const params = new URLSearchParams(window.location.search);
   const vacancyId = params.get("id");
@@ -97,12 +107,13 @@ const formApplication = document.getElementById("formApplication");
 formApplication.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  const vacancyId = parseInt(getUrlParameter("id"))
   const data = {
     candidateId: parseInt(sessionStorage.getItem("userId")),
-    vacancyId: parseInt(getUrlParameter("id")),
-    expectedSalary: parseInt(getDataForm("expectedSalary"))
+    expectedSalary: parseInt(getDataForm("expectedSalary")),
+    currency: "USD"
   };
-  const url = "http://localhost:8080/api/v1/applications";
+  const url = `http://localhost:8080/api/v1/vacancies/${vacancyId}/applications`;
   applyForVacancy(url, data);
 
 })
