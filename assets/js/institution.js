@@ -18,7 +18,6 @@ formCreateInstitution.addEventListener("submit", function(event) {
         about: getDataForm("about")
       }
 
-      //console.log(data);
       const url = "http://localhost:8080/api/v1/organizations"
       const redirect_url = "perfil.html"
       create(data, url, redirect_url)
@@ -57,7 +56,7 @@ function createCardInstitution(institution) {
 async function getAllInstitution() {
 
     const userId = sessionStorage.getItem("userId")
-    const url = "http://localhost:8080/api/v1/organizations";
+    const url = `http://localhost:8080/api/v1/organizations/owner/${userId}`;
     const options = {
         method: 'GET', 
         headers: { 'Content-Type': 'application/json'}

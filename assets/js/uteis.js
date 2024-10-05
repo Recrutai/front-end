@@ -103,7 +103,8 @@ export function setFields(id, value) {
 }
 
 export function loadCompanies(selectId) {
-    const url = "http://localhost:8080/api/v1/organizations"
+    const userId = sessionStorage.getItem("userId")
+    const url = `http://localhost:8080/api/v1/organizations/owner/${userId}`;
     fetch(url)
     .then(response => {
         if (response.ok) {
