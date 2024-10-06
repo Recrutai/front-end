@@ -1,4 +1,4 @@
-import { getDataForm, loadCompanies, getSelectedOption } from "../js/uteis.js";
+import { getDataForm, loadCompanies, getSelectedOption, translate } from "../js/uteis.js";
 
 loadCompanies("institutionId")
 
@@ -67,11 +67,12 @@ function filterVacancies() {
           : vacancy.title;
 
       const card = document.createElement("div");
+      const workModel = translate(vacancy.workModel);
       card.className = "card";
       card.innerHTML = `
        <div class="card-content">
         <h3>${truncatedTitle}</h3>
-        <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+        <p><strong>Modelo de Trabalho:</strong> ${workModel}</p>
         <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
         <p><strong>Local:</strong> ${vacancy.location}</p>
       </div>
@@ -166,11 +167,12 @@ function getVacancyByTitle() {
               : vacancy.title;
 
           const card = document.createElement("div");
+          const workModel = translate(vacancy.workModel);
           card.className = "card";
           card.innerHTML = `
             <div class="card-content">
               <h3>${truncatedTitle}</h3>
-              <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+              <p><strong>Modelo de Trabalho:</strong> ${workModel}</p>
               <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
               <p><strong>Vagas:</strong> ${vacancy.positions || "N/A"}</p>
             </div>
@@ -213,17 +215,15 @@ function getVacancyDetails() {
     .then((response) => response.json())
     .then((vacancy) => {
       const detailsContainer = document.getElementById("vacancyDetails");
+      let workModel = translate(vacancy.workModel.trim());
       detailsContainer.innerHTML = `
             <h2>${vacancy.title}</h2>
             <p><strong>Descrição:</strong> ${vacancy.description}</p>
-            <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+            <p><strong>Modelo de Trabalho:</strong>${workModel}</p>
             <p><strong>Salário Médio:</strong> R$ ${vacancy.avgSalary},00</p>
             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
             <p><strong>Vagas:</strong> ${vacancy.positions}</p>
           `;
-
-      // const applyBtn = document.getElementById("applyBtn");
-      // applyBtn.onclick = () => applyForVacancy(vacancyId);
     })
     .catch((error) => {
       document.getElementById("vacancyDetails").innerHTML =

@@ -1,3 +1,5 @@
+import { translate } from "../js/uteis.js";
+
 var modal = document.getElementById("salaryModal");
 var btn = document.getElementById("applyBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -64,10 +66,13 @@ function getVacancyDetails() {
         btn.style.display = "none";
       }
       const detailsContainer = document.getElementById("vacancyDetails");
+      const workModel = translate(vacancy.workModel);
+      const type = translate(vacancy.employmentType)
       detailsContainer.innerHTML = `
             <h2>${vacancy.title}</h2>
             <p><strong>Descrição:</strong> ${vacancy.description}</p>
-            <p><strong>Modelo de Trabalho:</strong> ${vacancy.workModel}</p>
+            <p><strong>Modelo de Trabalho:</strong> ${workModel}</p>
+            <p><strong>Tipo de Contratação:</strong> ${type}</p>
             <p><strong>Local:</strong> ${vacancy.organization.headquarters}</p>
             <p><strong>Salário Médio:</strong> R$ ${vacancy.salary},00</p>
             <p><strong>Candidaturas:</strong> ${vacancy.applications}</p>
@@ -119,3 +124,7 @@ formApplication.addEventListener("submit", function (event) {
   applyForVacancy(url, data);
 
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+  getVacancyDetails();
+});

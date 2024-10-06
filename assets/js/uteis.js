@@ -118,3 +118,22 @@ export function loadCompanies(selectId) {
         console.error('Houve um problema com a requisição:', error);
     });
 }
+
+export function translate(string) {
+    let dict = {
+        "ON_SITE": "Presencial",
+        "REMOTE": "Remoto",
+        "HYBRID": "Hibrido",
+        "CONTRACT": "Contrato",
+        "FREELANCE": "Freelancer",
+        "INTERNSHIP": "Estágio",
+        "RESEARCH":"Pesquisador",
+        "FULL_TIME":"Tempo Integral",
+        "PART_TIME":"Meio Período",
+        "INDIRECT_CONTRACT": "Temporário"
+
+    };
+    let key = string.trim()
+    console.log(dict.key)
+    return dict[key]
+}
