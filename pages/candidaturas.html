@@ -22,10 +22,29 @@
             <img src="../assets/img/logo.png" width="100" />
         </a>
         <form action="" method="post">
+            <a class="perfil-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Minhas Entrevistas
+            </a>
           <button class="logout" type="submit">Sair</button>
         </form>
     </header>
     <h1 class="text-center" style="color: aliceblue;">Minhas Candidaturas</h1>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Entrevistas Marcadas</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div id="empty-modal"></div>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <div id="empty"></div>
     <div class="row row-cols-1 row-cols-md-2 g-4" id="application">
     </div>

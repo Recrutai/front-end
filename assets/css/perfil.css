@@ -108,3 +108,10 @@ header button:hover {
     color: aliceblue;
     padding-bottom: 1%;
 }
+
+.perfil-link {
+    color: aliceblue;
+    text-decoration: none;
+    padding-right: 10px;
+    cursor: pointer;
+}

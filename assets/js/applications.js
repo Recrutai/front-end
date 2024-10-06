@@ -58,7 +58,7 @@ function createCardVacancies(vacancy) {
                 <p><strong>Descrição:</strong> ${vacancy.description}</p>
                 <p><strong>Modalidade:</strong> ${vacancy.workModel} | ${vacancy.employmentType}</p>
                 <p><strong>Salário:</strong> R$ ${vacancy.salary},00</p>
-                <p><strong>Localização da Empresa:</strong> ${vacancy.organization.headquarters}</p>
+                <p><strong>Localização da Empresa:</strong> ${vacancy.location.city}-${vacancy.location.state}</p>
                 <a class="btn btn-primary" href="../pages/candidatos.html?id=${vacancy.id}">Listar Candidados</a>
             </div>
         </div>
