@@ -150,19 +150,19 @@
                                             <span class="select-school-valid">Selecione uma Opção</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="description">
+                                            <input type="text" class="form-control" id="description" oninput="validDescriptionCourses()">
                                             <label for="floatingInputGrid">Descrição</label>
-                                            <span class="span-courses">A descrição não pode ser vazia e nem maior que 2000 caracteres.</span>
+                                            <span class="description-valid">A descrição não pode ser vazia e nem maior que 2000 caracteres.</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="workloadHours">
+                                            <input type="number" class="form-control" id="workloadHours" oninput="validHoursCourses()">
                                             <label for="floatingInputGrid">Carga Horária</label>
-                                            <span class="span-courses">A carga horária deve ser maior que 0.</span>
+                                            <span class="hours-valid">A carga horária deve ser maior que 0.</span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" id="completionDate">
+                                            <input type="date" class="form-control" id="completionDate" oninput="validDateConclusion()">
                                             <label for="floatingInputGrid">Data de Conclusão</label>
-                                            <span class="span-courses">Não pode ser uma data futura.</span>
+                                            <span class="span-completionDate">Não pode ser uma data futura.</span>
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cadastrar</button>
