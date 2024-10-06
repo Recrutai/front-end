@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon"/>
     <script src="../assets/js/session.js" defer></script>
     <script src="../assets/js/applications.js" defer></script>
+    <script src="../assets/js/validacaoModalInterview.js" defer></script>
     <script type="module" src="../assets/js/interview.js"></script>
 </head>
 
@@ -49,27 +50,27 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control required-interview" id="title" oninput="validTitle()">
                             <label for="floatingInputGrid">Título</label>
-                            <span class="name-valid">Tamanho Máx 100 | Mín 5</span>
+                            <span class="span-interview">Tamanho Máx 100 | Mín 5</span>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control required-interview" id="description" oninput="validDescription()">
                             <label for="floatingInputGrid">Descrição</label>
-                            <span class="name-valid">A descrição não pode ser vazia e deve ter no máximo 2000 caracteres</span>
+                            <span class="span-interview">A descrição não pode ser vazia e deve ter no máximo 2000 caracteres</span>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control required-interview" id="scheduledTo" oninput="validInterviewDate()">
                             <label for="floatingInputGrid">Data da Entrevista</label>
-                            <span class="span-courses">A data deve ser maior que a data atual</span>
+                            <span class="span-interview">A data deve ser maior que a data atual</span>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="time" class="form-control required-interview" id="hour" oninput="validInterviewTime()">
+                            <input type="time" class="form-control required-interview" id="hour">
                             <label for="floatingInputGrid">Hora da Entrevista</label>
-                            <span class="span-courses">A data hora deve ser informada</span>
+                            <span class="span-interview">A data hora deve ser informada</span>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control required-interview" id="reunionUrl" oninput="validUrl()">
                             <label for="floatingInputGrid">Link da Reunião</label>
-                            <span class="name-valid">Insira um Link Válido</span>
+                            <span class="span-interview">Insira um Link Válido</span>
                         </div>
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cadastrar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
