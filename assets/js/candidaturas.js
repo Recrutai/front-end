@@ -1,3 +1,5 @@
+import { translate } from "../js/uteis.js";
+
 async function getApplicationsByUser() {
 
     const userId = sessionStorage.getItem("userId")
@@ -34,6 +36,8 @@ getApplicationsByUser();
 
 function createCardApplication(application) {
     const cardApplication = document.getElementById("application");
+    const workModel = translate(application.vacancy.workModel);
+    const employmentType = translate(application.vacancy.employmentType);
     const card = `
         <div class="col">
             <div class="card mt-3 card-application">
@@ -45,7 +49,7 @@ function createCardApplication(application) {
                 <hr>
                 <p><strong>Cargo:</strong>${application.vacancy.title}</p>
                 <p><strong>Descrição:</strong> ${application.vacancy.description}</p>
-                <p><strong>Modalidade:</strong> ${application.vacancy.workModel} | ${application.vacancy.employmentType}</p>
+                <p><strong>Modalidade:</strong> ${workModel} | ${employmentType}</p>
                 <p><strong>Salário:</strong> R$ ${application.vacancy.salary},00</p>
                 <p><strong>Localização da Empresa:</strong> ${application.vacancy.location.city}-${application.vacancy.location.state} </p>
             </div>

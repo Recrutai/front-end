@@ -1,3 +1,5 @@
+import { translate } from "../js/uteis.js";
+
 async function getVacanciesByMember() {
 
     const userId = sessionStorage.getItem("userId")
@@ -45,6 +47,8 @@ getVacanciesByMember();
 
 function createCardVacancies(vacancy) {
     const cardApplication = document.getElementById("vacancies-By-Member");
+    const workModel = translate(vacancy.workModel);
+    const employmentType = translate(vacancy.employmentType);
     const card = `
         <div class="col">
             <div class="card mt-3 card-application">
@@ -56,7 +60,7 @@ function createCardVacancies(vacancy) {
                 <hr>
                 <p><strong>Cargo:</strong>${vacancy.title}</p>
                 <p><strong>Descrição:</strong> ${vacancy.description}</p>
-                <p><strong>Modalidade:</strong> ${vacancy.workModel} | ${vacancy.employmentType}</p>
+                <p><strong>Modalidade:</strong> ${workModel} | ${employmentType}</p>
                 <p><strong>Salário:</strong> R$ ${vacancy.salary},00</p>
                 <p><strong>Localização da Empresa:</strong> ${vacancy.location.city}-${vacancy.location.state}</p>
                 <a class="btn btn-primary" href="../pages/candidatos.html?id=${vacancy.id}">Listar Candidados</a>
